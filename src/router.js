@@ -88,11 +88,9 @@ class index_Screen extends React.Component {
 
 export default createBottomTabNavigator({
   MAP: { screen: MAP },
-
   Target:{screen:Target},
-        EXP: { screen: EXP },
-       
-        History:{screen:History}
+  EXP: { screen: EXP },
+  History:{screen:History}
 
 
 //    info: { screen: User },
@@ -106,7 +104,8 @@ export default createBottomTabNavigator({
 
 
 }, {
-    navigationOptions: ({ navigation }) => ({
+  
+    defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
