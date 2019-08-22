@@ -236,13 +236,14 @@ export default class BookRead extends Component<Props> {
         <View style={{ flex: 1, flexDirection: 'column' }}>
 
           <MapView
+          provider={"google"}
             style={{ flex: 1 }}
             //  scrollEnabled={false}
             //  zoomEnabled={false}
             showsUserLocation={true}
             userLocationAnnotationTitle={"你的位置"}
             // mapType={"hybrid"}
-            mapType={"mutedStandard"}
+            // mapType={"mutedStandard"}
             region={{
               //  latitude: Number(this.props.latitude),
               //  longitude: Number(this.props.longitude),

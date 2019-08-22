@@ -39,9 +39,24 @@ target 'appleMapTs' do
   target 'appleMapTsTests' do
     inherit! :search_paths
     # Pods for testing
+    
   end
+ 
+
+  
+  rn_maps_path = '../node_modules/react-native-maps'
+pod 'react-native-maps', :path => rn_maps_path
+pod 'react-native-google-maps', :path => rn_maps_path
+pod 'GoogleMaps'
+pod 'Google-Maps-iOS-Utils'
+# pod update
+# pod 'GooglePlaces','~> 3.0.3'
+
+# pod 'GooglePlacePicker','~> 3.0.3'
 
   use_native_modules!
+  # React Native Maps dependencies
+
 end
 
 target 'appleMapTs-tvOS' do
