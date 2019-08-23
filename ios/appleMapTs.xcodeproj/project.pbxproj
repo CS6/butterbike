@@ -35,6 +35,8 @@
 		E6D0BDD97DBD4D8D85449B03 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B37588DBD4884A2FB98F20AF /* MaterialIcons.ttf */; };
 		EA263432E4B541FB917D52BC /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFF14B9DF53F4D1A9D6A2AD5 /* FontAwesome5_Solid.ttf */; };
 		F90320FB37C064C2FBC65C5F /* libPods-appleMapTs-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2E569AD9407B7ACF097BF4 /* libPods-appleMapTs-tvOSTests.a */; };
+		FBA80E28231038EC00757601 /* DoubleConversion.podspec in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA80E27231038EC00757601 /* DoubleConversion.podspec */; };
+		FBA80E2A23103A8C00757601 /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA80E2923103A8C00757601 /* libDoubleConversion.a */; };
 		FDBB78BE835D4BCC89295CDD /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAEFB9F0E2354914A9CC03DC /* FontAwesome5_Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FA25520B0641E251EF213C07 /* Pods-appleMapTsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleMapTsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appleMapTsTests/Pods-appleMapTsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBA80E27231038EC00757601 /* DoubleConversion.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = DoubleConversion.podspec; path = "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"; sourceTree = "<group>"; };
+		FBA80E2923103A8C00757601 /* libDoubleConversion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDoubleConversion.a; path = "../../../../zenMW/zenscape/ios/build/zenscape/Build/Products/Debug-iphonesimulator/DoubleConversion/libDoubleConversion.a"; sourceTree = "<group>"; };
 		FC02C3BCF40059CA789BF0DB /* Pods-appleMapTs-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleMapTs-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-appleMapTs-tvOSTests/Pods-appleMapTs-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA80E2A23103A8C00757601 /* libDoubleConversion.a in Frameworks */,
+				FBA80E28231038EC00757601 /* DoubleConversion.podspec in Frameworks */,
 				0792022DE0FEB5470DD5F90E /* libPods-appleMapTs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +200,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBA80E2923103A8C00757601 /* libDoubleConversion.a */,
+				FBA80E27231038EC00757601 /* DoubleConversion.podspec */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				4633E152CDFC6179BACD935C /* libPods-appleMapTs.a */,

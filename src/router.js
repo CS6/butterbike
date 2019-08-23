@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 //引用插件
 import MAP from './map';
-import EXP from './exp';
+import EXP from './expmap';
 import Target  from './target'
 import History from './history'
 // import Otherpage from './page/home/otherpage';
@@ -87,9 +87,10 @@ class index_Screen extends React.Component {
 
 
 export default createBottomTabNavigator({
+  EXP: { screen: EXP },
+
   MAP: { screen: MAP },
   Target:{screen:Target},
-  EXP: { screen: EXP },
   History:{screen:History}
 
 
