@@ -26,7 +26,11 @@ import {
 } from 'react-native';
 import MapView, { Overlay, OverlayComponent, Marker, Circle, Polyline, Polygon } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
+import MapViewDirections from 'react-native-maps-directions';
 
+const origin = {latitude:24.147782, longitude: 123.673492 };
+const destination = { latitude: 24.147782, longitude: 120.673492 }
+const GOOGLE_MAPS_APIKEY = 'AIzaSyC8Yg8Ig6VEZIWz8cWH3yfYOjAGzqIpDMI';
 // 取得屏幕的宽高Dimensions
 const { width, height } = Dimensions.get('window');
 // var Geolocation = require('Geolocation');
@@ -69,6 +73,8 @@ export default class BookRead extends Component<Props> {
         coords: {
           // latitude: 24.147782,
           // longitude: 120.673492
+          // latitude: 37.4133028,
+          // longitude: -122.151307
           latitude: 37.4133028,
           longitude: -122.151307
         }
@@ -236,29 +242,41 @@ export default class BookRead extends Component<Props> {
         <View style={{ flex: 1, flexDirection: 'column' }}>
 
           <MapView
+          
           provider={"google"}
             style={{ flex: 1 }}
             //  scrollEnabled={false}
             //  zoomEnabled={false}
             showsUserLocation={true}
             userLocationAnnotationTitle={"你的位置"}
-            // mapType={"hybrid"}
+            mapType={"hybrid"}
             // mapType={"mutedStandard"}
-            region={{
-              //  latitude: Number(this.props.latitude),
-              //  longitude: Number(this.props.longitude),
-
-
-
-              latitude: location.coords.latitude,
-              longitude: location.coords.longitude,
-              // latitude: 24.147782,
-              // longitude: 120.673492,
-              latitudeDelta: 0.003,
-              longitudeDelta: 0.003,
-            }}
+            // region={{
+            //   //  latitude: Number(this.props.latitude),
+            //   //  longitude: Number(this.props.longitude),
+            //   latitude: location.coords.latitude,
+            //   longitude: location.coords.longitude,
+            //   // latitude: 24.147782,
+            //   // longitude: 120.673492,
+            //   latitudeDelta: 0.003,
+            //   longitudeDelta: 0.003,
+            // }}
           //  onPress={this.props.onPress}>
           >
+             {/* <MapViewDirections
+    origin={origin}
+    destination={destination}
+    apikey={GOOGLE_MAPS_APIKEY}
+    strokeWidth={3}
+    strokeColor="#FF00FF"
+  /> */}
+   <MapViewDirections
+    origin=  {{ latitude: location.coords.latitude, longitude: location.coords.longitude }}
+    destination={destination}
+    apikey={GOOGLE_MAPS_APIKEY}
+    strokeWidth={30}
+    strokeColor="hotpink"
+  />
             <Circle
               radius={100}
               center={{ latitude: 24.147782, longitude: 120.673492 }}
