@@ -13,12 +13,12 @@ import {
 
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-
 //引用插件
 import MAP from './map';
-import EXP from './expmap';
+import EXP from './exp';
 import Target  from './target'
 import History from './history'
+import GPSmap from './GPSmap'
 // import Otherpage from './page/home/otherpage';
 // import otherHpage from './page/home/otherHpage';
 // import Webview from './page/web/Webview';
@@ -87,9 +87,10 @@ class index_Screen extends React.Component {
 
 
 export default createBottomTabNavigator({
+  MAP: { screen: GPSmap },
+
   EXP: { screen: EXP },
 
-  MAP: { screen: MAP },
   Target:{screen:Target},
   History:{screen:History}
 

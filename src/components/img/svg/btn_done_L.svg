@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="124" height="69" viewBox="0 0 124 69">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-btn_done_L);
+      }
+
+      .cls-2 {
+        fill: #73b459;
+      }
+
+      .cls-3 {
+        fill: #85bf6d;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        font-size: 20px;
+        font-family: PingFangTC-Regular, PingFang TC;
+      }
+    </style>
+    <clipPath id="clip-btn_done_L">
+      <rect width="124" height="69"/>
+    </clipPath>
+  </defs>
+  <g id="btn_done_L" class="cls-1">
+    <g id="小btn_2" data-name="小btn – 2" transform="translate(3.174 2)">
+      <g id="Group_617" data-name="Group 617" transform="translate(5.826)">
+        <path id="Path_116" data-name="Path 116" class="cls-2" d="M10,0h96.883a10,10,0,0,1,10,10V56a10,10,0,0,1-10,10H10A10,10,0,0,1,0,56V10A10,10,0,0,1,10,0Z" transform="translate(-5.826)"/>
+        <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-3" width="111.057" height="60" rx="10"/>
+      </g>
+      <text id="繼續" class="cls-4" transform="translate(41.68 37)"><tspan x="0" y="0">繼續</tspan></text>
+      <rect id="Rectangle_332" data-name="Rectangle 332" class="cls-5" width="64.066" height="5" rx="2.5" transform="translate(41.76 3)"/>
+      <rect id="Rectangle_333" data-name="Rectangle 333" class="cls-5" width="18" height="5" rx="2.5" transform="translate(16.76 3)"/>
+    </g>
+  </g>
+</svg>
