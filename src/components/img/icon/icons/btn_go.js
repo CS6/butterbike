@@ -22,6 +22,8 @@ const SvgComponent = props => (
         id="prefix__Component_20_4"
         data-name="Component 20 \u2013 4"
         transform="translate(4 3)"
+        fill="#fff"
+
       >
         <G id="prefix__Group_618" data-name="Group 618">
           <Rect
@@ -58,6 +60,8 @@ const SvgComponent = props => (
             height={5}
             rx={2.5}
             transform="translate(20.934 4)"
+            fill="#fff"
+
           />
         </G>
         <Text

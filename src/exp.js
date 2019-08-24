@@ -153,6 +153,7 @@ const App = () => {
         
                 {/* <Image  source={require(item.image)}/> */}
                 <Image   source={item.image}/>
+                
 
                 {/* <Image  source={require("../src/components/img/icon/png/AM1.png")}/> */}
 
@@ -172,6 +173,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
       <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
+        
         {renderPhotoTypes()}
 
         {/* {num.map((note) => {

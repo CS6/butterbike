@@ -19,6 +19,11 @@ import EXP from './exp';
 import Target  from './target'
 import History from './history'
 import GPSmap from './GPSmap'
+import Loding from './Loding'
+import Login from './Login'
+import Sets from './Set'
+import DocList from './DocList'
+
 // import Otherpage from './page/home/otherpage';
 // import otherHpage from './page/home/otherHpage';
 // import Webview from './page/web/Webview';
@@ -87,14 +92,68 @@ class index_Screen extends React.Component {
 
 
 export default createBottomTabNavigator({
-  MAP: { screen: GPSmap },
+  
+  
+  DocList:{screen:DocList},
 
-  EXP: { screen: EXP },
+  // MAP: { screen: GPSmap },
 
-  Target:{screen:Target},
-  History:{screen:History}
+  // EXP: { screen: EXP },
+
+  // Target:{screen:Target},
+  // History:{screen:History},
+
+  // Loding:{screen:Loding},
+  // Our plus button
+
+ MAP:{
+  screen: () => <GPSmap/>, // Empty screen
+  navigationOptions: () => ({
+      tabBarIcon: <Image
+      style={{resizeMode:"contain",width:60}}
+      source={require("./components/img/icon/png/AM1.png")}/>
+  })
+},
+
+  History:{
+    screen: () => <History/>, // Empty screen
+    navigationOptions: () => ({
+        tabBarIcon: <Image
+        style={{resizeMode:"contain",width:50}}
+
+        source={require("./components/img/icon/png/AM2.png")}/>
+    })
+},
 
 
+Target:{
+  screen: () => <Target/>, // Empty screen
+  navigationOptions: () => ({
+      tabBarIcon: <Image
+      style={{resizeMode:"contain",width:50}}
+
+      source={require("./components/img/icon/png/AM3.png")}/>
+  })
+},
+
+EXP: {
+  screen: () => <EXP/>, // Empty screen
+  navigationOptions: () => ({
+      tabBarIcon: <Image
+      style={{resizeMode:"contain",width:50}}
+
+      source={require("./components/img/icon/png/AM4.png")}/>
+  })
+},
+Adding: {
+    screen: () => <Loding/>, // Empty screen
+    navigationOptions: () => ({
+        tabBarIcon: <Image
+        source={require("./components/img/icon/png/BM1.png")}/>
+    })
+},
+  Sets:{screen:Sets},
+  Login:{screen:Login},
 //    info: { screen: User },
 
   // index: { screen: index_Screen },
@@ -120,7 +179,17 @@ export default createBottomTabNavigator({
           iconName = "home";
         } else if (routeName === 'History') {
           iconName = "hiking";
+        } else if (routeName === 'Loding') {
+          iconName = "hiking";
+        } else if (routeName === 'Sets') {
+          iconName = "hiking";
+        } else if (routeName === 'Login') {
+          iconName = "hiking";
+        } else if (routeName === 'DocList') {
+          iconName = "hiking";
         }
+
+        
         // 
         //calendar-minus
 
@@ -152,7 +221,20 @@ export default createBottomTabNavigator({
       },
     }),
     ///下方tab bar icon 顏色 
-
+     navigationOptions :{
+      // headerTitle instead of title
+      // headerTitle: <Top />,
+      title: '奶油行',
+      headerStyle: {
+        backgroundColor: '#F4DA17',
+      },
+      headerTintColor: '#707070',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+  
+    },
+  
     tabBarOptions: {
       activeTintColor: '#6787A0',
       inactiveTintColor: '#7C7C7C',

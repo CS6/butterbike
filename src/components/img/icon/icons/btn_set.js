@@ -50,6 +50,8 @@ const SvgComponent = props => (
           height={5}
           rx={2.5}
           transform="translate(82.347 4)"
+          fill="#FFF"
+
         />
         <Rect
           id="prefix__Rectangle_339"
@@ -59,6 +61,8 @@ const SvgComponent = props => (
           height={5}
           rx={2.5}
           transform="translate(35.347 4)"
+          fill="#FFF"
+
         />
         <Text
           id="prefix__\u8A2D\u5B9A"

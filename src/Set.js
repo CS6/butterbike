@@ -18,15 +18,17 @@ import {
 	Button
 	//  Geolocation
 } from 'react-native';
-import MapModalGO from './components/MsgModal/MapModalGO'
-import MapModalMemuA from './components/MsgModal/MapModalMemuA'
-import MapModalMemuB from './components/MsgModal/MapModalMemuB'
-import MapModaldone from './components/MsgModal/MapModaldone'
-import MapModalDOC from './components/MsgModal/MapModalDOC'
+import SvgMsg from './components/img/icon/icons/btn_set';
+
 const { width, height } = Dimensions.get('window');
 
 export default class App extends Component {
-
+	static navigationOptions = {
+		// headerTitle instead of title
+		// headerTitle: <Top />,
+		title: '基本設定',
+	    
+	      };
 	constructor(props) {
 		super(props);
 
@@ -50,36 +52,32 @@ export default class App extends Component {
 
 	render() {
 
-		if (Platform.OS === 'android') {
-			return (
-				<View style={styles.container}>
+		// if (Platform.OS === 'android') {
+		// 	return (
+		// 		<View style={styles.container}>
 
-					<Text>
-						{"For some reason Android crashes here on Expo, so you'll have to test this with iOS … Sorry"}
-					</Text>
+		// 			<Text>
+		// 				{"For some reason Android crashes here on Expo, so you'll have to test this with iOS … Sorry"}
+		// 			</Text>
 
-				</View>
-			);
-		}
+		// 		</View>
+		// 	);
+		// }
 
 		return (
 			<View style={styles.container}>
 
-				<View style={styles.mapbody}>
+				
 
-					<Text>
-						{"For some HAHAHA"}
+					<Text>歡迎 『阿明』使用奶油哥app </Text>
+					<Text>1.是否要推薦沿路店家給您?</Text>
 
-					</Text>
-					<MapModalGO/>
-					<MapModalMemuA/>
-					<MapModalMemuB/>
-					<MapModaldone/>
-					<MapModalDOC/>
+					<Text>2.您想多久休息一次?</Text>
 
+					<SvgMsg/>
 
-				</View>
-
+				
+{/* 
 				<View style={styles.mapTop}>
 
 					<ImageBackground style={{ width: width, height: width * 0.4 }}
@@ -89,7 +87,7 @@ export default class App extends Component {
 
 						</Text>
 					</ImageBackground>
-				</View>
+				</View> */}
 
 
 
@@ -102,7 +100,11 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column',
-		backgroundColor: '#ecf0f1',
+		// backgroundColor: '#ecf0f1',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#DCF1DB',
+		padding: 50
 
 	},
 	mapTop: {
@@ -115,10 +117,10 @@ const styles = StyleSheet.create({
 
 	},
 	mapbody: {
-		paddingTop: 100,
-		marginTop: 100,
-		flex: 1,
-		backgroundColor: '#FAA',
+		// paddingTop: 100,
+		// marginTop: 100,
+		// flex: 1,
+		// backgroundColor: '#FAA',
 
 
 	},

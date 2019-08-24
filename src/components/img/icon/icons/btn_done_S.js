@@ -13,55 +13,44 @@ import Svg, {
 const SvgComponent = props => (
   <Svg width={124} height={69} {...props}>
     <Defs>
-      <ClipPath id="prefix__clip-btn_done_L">
+      <ClipPath id="prefix__clip-btn_done_R">
         <Path d="M0 0h124v69H0z" />
       </ClipPath>
     </Defs>
-    <G id="prefix__btn_done_L" clipPath="url(#prefix__clip-btn_done_L)">
-      <G
-        id="prefix__\u5C0Fbtn_2"
-        data-name="\u5C0Fbtn \u2013 2"
-        transform="translate(3.174 2)"
-      >
+    <G id="prefix__btn_done_R" clipPath="url(#prefix__clip-btn_done_R)">
+      <G id="prefix__\u5C0Fbtn" transform="translate(3.174 2)">
         <G
           id="prefix__Group_617"
           data-name="Group 617"
           transform="translate(5.826)"
         >
-          <Path
-            id="prefix__Path_116"
-            data-name="Path 116"
-            d="M10 0h96.883a10 10 0 0110 10v46a10 10 0 01-10 10H10A10 10 0 010 56V10A10 10 0 0110 0z"
-            transform="translate(-5.826)"
-            fill="#73b459"
-          />
-           <Rect
+          <Rect
             id="prefix__Rectangle_1"
             data-name="Rectangle 1"
             width={116.883}
             height={66}
             rx={10}
             transform="translate(-5.826)"
-            fill="#73B459"
+            fill="#A7291E"
           />
           <Rect
-            id="prefix__Rectangle_1"
+            id="prefix__Rectangle_1-2"
             data-name="Rectangle 1"
             width={111.057}
             height={60}
             rx={10}
-            fill="#85bf6d"
+            fill="#EA4335"
           />
         </G>
         <Text
-          id="prefix__\u7E7C\u7E8C"
+          id="prefix__\u5B8C\u6210"
           transform="translate(41.68 37)"
           fontSize={20}
           fontFamily="PingFangTC-Regular,PingFang TC"
           fill="#fff"
         >
           <TSpan x={0} y={0}>
-            {'\u7E7C\u7E8C'}
+            {'\u5B8C\u6210'}
           </TSpan>
         </Text>
         <Rect

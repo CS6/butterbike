@@ -18,8 +18,8 @@ import {
 
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import MiniMAP from './components/Minimap';
-import CardNotice from './components/CardNotice';
+// import MiniMAP from './components/Minimap';
+import CardDoc from './components/CardDoc';
 
 //引用插件
 // import MAP from './map';
@@ -29,12 +29,16 @@ const { width, height } = Dimensions.get('window');
 
 
 
-
 export default class index_Screen extends React.Component {
         static navigationOptions = {
           // headerTitle instead of title
           // headerTitle: <Top />,
           title: '旅程日誌',
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#f4511e',
+
       
         };
         constructor() {
@@ -150,7 +154,18 @@ componentDidMount() {
           )
         }
 
+        // Docs() {
+
+        //   return (
+        //     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       
+        //       <Text  color='#6787A0' >Home!</Text>
+             
+      
+        //     </View>
+      
+        //   )
+        // }
         render() {
                 if(this.state.isLoading){
                         return(
@@ -171,10 +186,10 @@ componentDidMount() {
                                 {this.state.announcement.map((note) => {
                            return (
                              
-                            <CardNotice
+                            <CardDoc
                             infoTitle={note.title}
                             infoBody={note.detail}
-                            mapBody={<MiniMAP/>}
+                            // mapBody={this.Docs}
                              />
                            );
                         })}

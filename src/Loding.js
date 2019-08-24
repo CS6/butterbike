@@ -18,11 +18,7 @@ import {
 	Button
 	//  Geolocation
 } from 'react-native';
-import MapModalGO from './components/MsgModal/MapModalGO'
-import MapModalMemuA from './components/MsgModal/MapModalMemuA'
-import MapModalMemuB from './components/MsgModal/MapModalMemuB'
-import MapModaldone from './components/MsgModal/MapModaldone'
-import MapModalDOC from './components/MsgModal/MapModalDOC'
+
 const { width, height } = Dimensions.get('window');
 
 export default class App extends Component {
@@ -50,46 +46,30 @@ export default class App extends Component {
 
 	render() {
 
-		if (Platform.OS === 'android') {
-			return (
-				<View style={styles.container}>
+		// if (Platform.OS === 'android') {
+		// 	return (
+		// 		<View style={styles.container}>
 
-					<Text>
-						{"For some reason Android crashes here on Expo, so you'll have to test this with iOS … Sorry"}
-					</Text>
+		// 			<Text>
+		// 				{"For some reason Android crashes here on Expo, so you'll have to test this with iOS … Sorry"}
+		// 			</Text>
 
-				</View>
-			);
-		}
+		// 		</View>
+		// 	);
+		// }
 
 		return (
 			<View style={styles.container}>
 
-				<View style={styles.mapbody}>
-
-					<Text>
-						{"For some HAHAHA"}
-
-					</Text>
-					<MapModalGO/>
-					<MapModalMemuA/>
-					<MapModalMemuB/>
-					<MapModaldone/>
-					<MapModalDOC/>
-
-
-				</View>
-
-				<View style={styles.mapTop}>
-
-					<ImageBackground style={{ width: width, height: width * 0.4 }}
-						source={require("../src/components/img/icon/png/bg.png")}>
+				
+					<ImageBackground style={{ width: width, height:height}}
+						source={require("../src/components/img/icon/png/butterbike.png")}>
 						<Text>
 							{"For some HAHARRRHA"}
 
 						</Text>
 					</ImageBackground>
-				</View>
+			
 
 
 
@@ -102,7 +82,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column',
-		backgroundColor: '#ecf0f1',
+		backgroundColor: '#DCF1DB',
 
 	},
 	mapTop: {

@@ -24,7 +24,7 @@ import {
   Button
   //  Geolocation
 } from 'react-native';
-import MapView, { Marker, Circle, Polyline, Polygon } from 'react-native-maps';
+import MapView, { Overlay, OverlayComponent,Constants, Marker, Circle, Polyline, Polygon , PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 
 // 取得屏幕的宽高Dimensions
@@ -40,6 +40,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const GOOGLE_MAPS_APIKEY = 'AIzaSyC8Yg8Ig6VEZIWz8cWH3yfYOjAGzqIpDMI';
 
 
 type Props = {};
@@ -101,80 +102,6 @@ export default class BookRead extends Component<Props> {
 
   }
 
-  // hasLocationPermission = async () => {
-  //   if (Platform.OS === 'ios' ||
-  //     (Platform.OS === 'android' && Platform.Version < 23)) {
-  //     return true;
-  //   }
-
-  //   const hasPermission = await PermissionsAndroid.check(
-  //     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-  //   );
-
-  //   if (hasPermission) return true;
-
-  //   const status = await PermissionsAndroid.request(
-  //     PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-  //   );
-
-  //   if (status === PermissionsAndroid.RESULTS.GRANTED) return true;
-
-  //   if (status === PermissionsAndroid.RESULTS.DENIED) {
-  //     ToastAndroid.show('Location permission denied by user.', ToastAndroid.LONG);
-  //   } else if (status === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
-  //     ToastAndroid.show('Location permission revoked by user.', ToastAndroid.LONG);
-  //   }
-
-  //   return false;
-  // }
-
-  // getLocation = async () => {
-  //   const hasLocationPermission = await this.hasLocationPermission();
-
-  //   if (!hasLocationPermission) return;
-
-  //   this.setState({ loading: true }, () => {
-  //     Geolocation.getCurrentPosition(
-  //       (position) => {
-  //         this.setState({ location: position, loading: false });
-  //         console.log(position);
-  //       },
-  //       (error) => {
-  //         this.setState({ location: error, loading: false });
-  //         console.log(error);
-  //       },
-  //       { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000, distanceFilter: 50, forceRequestLocation: true }
-  //     );
-  //   });
-  // }
-
-  // getLocationUpdates = async () => {
-  //   const hasLocationPermission = await this.hasLocationPermission();
-
-  //   if (!hasLocationPermission) return;
-
-  //   this.setState({ updatesEnabled: true }, () => {
-  //     this.watchId = Geolocation.watchPosition(
-  //       (position) => {
-  //         this.setState({ location: position });
-  //         console.log(position);
-  //       },
-  //       (error) => {
-  //         this.setState({ location: error });
-  //         console.log(error);
-  //       },
-  //       { enableHighAccuracy: true, distanceFilter: 0, interval: 5000, fastestInterval: 2000 }
-  //     );
-  //   });
-  // }
-
-  // removeLocationUpdates = () => {
-  //   if (this.watchId !== null) {
-  //     Geolocation.clearWatch(this.watchId);
-  //     this.setState({ updatesEnabled: false })
-  //   }
-  // }
-
 
   render() {
     const { loading, location, updatesEnabled } = this.state;
@@ -183,6 +110,11 @@ export default class BookRead extends Component<Props> {
 
         // <View style={{ flex: 1, flexDirection: 'column' }}>
           <MapView
+          provider={"google"}
+          //  scrollEnabled={false}
+          //  zoomEnabled={false}
+          showsUserLocation={true}
+          mapType={"standard"}
             style={{  flex: 1, flexDirection: 'column' ,backgroundColor:"black"}}
             cacheEnabled={true}
             loadingEnabled={true}
@@ -197,7 +129,7 @@ export default class BookRead extends Component<Props> {
             showsBuildings={false}
             showsIndoors={false}
             showsTraffic={false}
-            mapType={"mutedStandard"}
+            // mapType={"mutedStandard"}
       
 
             initialRegion={{
@@ -234,10 +166,10 @@ export default class BookRead extends Component<Props> {
                 { latitude: 24.149782, longitude: 120.673192 },
               ]}
             /> */}
-            {/* <Marker
+            <Marker
               //  coordinate={{ latitude: Number(this.props.latitude), longitude: Number(this.props.longitude) }}
               coordinate={{ latitude: 24.147782, longitude: 120.673492 }}
-            /> */}
+            />
             {/* <Marker draggable
     coordinate={this.state.x}
     onDragEnd={(e) => {

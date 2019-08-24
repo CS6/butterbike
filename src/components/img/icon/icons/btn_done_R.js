@@ -61,6 +61,7 @@ const SvgComponent = props => (
           height={5}
           rx={2.5}
           transform="translate(41.76 3)"
+          fill="#fff"
         />
         <Rect
           id="prefix__Rectangle_333"
@@ -70,6 +71,7 @@ const SvgComponent = props => (
           height={5}
           rx={2.5}
           transform="translate(16.76 3)"
+          fill="#fff"
         />
       </G>
     </G>
