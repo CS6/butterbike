@@ -20,6 +20,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 // import MiniMAP from './components/Minimap';
 import CardDoc from './components/CardDoc';
+import { WebView } from 'react-native-webview';
 
 //引用插件
 // import MAP from './map';
@@ -189,7 +190,8 @@ componentDidMount() {
                             <CardDoc
                             infoTitle={note.title}
                             infoBody={note.detail}
-                            // mapBody={this.Docs}
+                            mapBody={      <WebView source={{ uri: 'https://facebook.github.io/react-native/' }} />
+                          }
                              />
                            );
                         })}
