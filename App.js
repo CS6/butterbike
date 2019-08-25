@@ -102,6 +102,14 @@ const RootStack = createStackNavigator({
      navigationOptions:{
     header:null,
 }},
+Login:{screen:Login,  
+  navigationOptions:{
+ header:null,
+}},
+Sets:{screen:Sets,  
+  navigationOptions:{
+//  header:null,
+}},
   Home: {
     screen: Router
   },

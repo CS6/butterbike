@@ -97,8 +97,7 @@ export default class CardNotice extends Component {
             this.setPhoneModalVisible(!this.state.modalPhoneVisible);
           }}>
             <View style={styles.top}>
-              <Text style={styles.TextTop}>Login "&" Setup Modal</Text>
-              <Text style={styles.TextDown}>Login "&" Setup Modal</Text>
+              <Text style={styles.TextTop}>點我返回</Text>
             </View>
           </TouchableHighlight>
           <View style={styles.background}>
@@ -147,7 +146,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center', height: height * 0.1, backgroundColor: "#000" 
   },
   TextTop: {
-    color: "#fff"
+    color: "#fff",
+    fontSize:30,
+
   },
   background: {
     flex: 1,

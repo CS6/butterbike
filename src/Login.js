@@ -175,12 +175,19 @@ export default class App extends Component<Props> {
 
 
           }}
-	/> */}
+  /> */}
+  	<TouchableOpacity onPress={()=>{
+              // this.JSON_Post()
+              this.props.navigation.push('Sets');//7秒后进入底部导航主页
+
+          }}>
 	      <SvgMsg/>
+        </TouchableOpacity>
 
 	<TouchableOpacity onPress={()=>{
-              this.JSON_Post()
-              this.props.navigation.push('Login') 
+              // this.JSON_Post()
+      this.props.navigation.push('Sets');//7秒后进入底部导航主页
+
           }}>
         <View style={styles.button}>
           <Text style={styles.searchContent}>Login</Text>

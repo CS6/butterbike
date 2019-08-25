@@ -43,7 +43,9 @@ export default class App extends Component {
 	}
 	componentDidMount(){
 		this.timer=setTimeout(()=>{
-		    this.props.navigation.navigate('Home');//7秒后进入底部导航主页
+		//     this.props.navigation.navigate('Login');//7秒后进入底部导航主页
+		this.props.navigation.push('Login');//7秒后进入底部导航主页
+
 		},1000)
 	    }
 	    //卸载计时器

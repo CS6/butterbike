@@ -73,9 +73,13 @@ export default class App extends Component {
 					<Text>1.是否要推薦沿路店家給您?</Text>
 
 					<Text>2.您想多久休息一次?</Text>
+					<TouchableOpacity onPress={()=>{
+              // this.JSON_Post()
+              this.props.navigation.push('Home');//7秒后进入底部导航主页
 
+          }}>
 					<SvgMsg/>
-
+					</TouchableOpacity>
 				
 {/* 
 				<View style={styles.mapTop}>

@@ -144,17 +144,17 @@ EXP: {
       source={require("./components/img/icon/png/AM4.png")}/>
   })
 },
-Adding: {
-    screen: () => <Loding/>, // Empty screen
-    navigationOptions: () => ({
-        tabBarIcon: <Image
-        source={require("./components/img/icon/png/BM1.png")}/>
-    })
-},
+// Adding: {
+//     screen: () => <Loding/>, // Empty screen
+//     navigationOptions: () => ({
+//         tabBarIcon: <Image
+//         source={require("./components/img/icon/png/BM1.png")}/>
+//     })
+// },
 DocList:{screen:DocList},
 
-  Sets:{screen:Sets},
-  Login:{screen:Login},
+  // Sets:{screen:Sets},
+  // Login:{screen:Login},
 //    info: { screen: User },
 
   // index: { screen: index_Screen },
