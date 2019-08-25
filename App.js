@@ -34,6 +34,9 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import MAP from './src/index'
 import Router from './src/router'
+import Loding from './src/Loding'
+import Login from './src/Login'
+import Sets from './src/Set'
 
 // import { createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator, withNavigation } from 'react-navigation';
 import {createAppContainer, createStackNavigator } from 'react-navigation';
@@ -54,6 +57,9 @@ class DetailsScreen extends React.Component {
     title: 'DetailsScreen',
     /* No more header config here! */
   };
+
+
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -92,6 +98,10 @@ class DetailsScreen extends React.Component {
 // };
 
 const RootStack = createStackNavigator({
+  Loding:{screen:Loding,  
+     navigationOptions:{
+    header:null,
+}},
   Home: {
     screen: Router
   },

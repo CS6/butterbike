@@ -183,6 +183,13 @@ export default class App extends Component {
 							}} >
 							<SvgMsg />
 						</TouchableOpacity>
+						<TouchableOpacity
+							onPress={() => {
+								// this.setPhoneModalVisible(true)
+								this.onChangeStepGO()
+							}} >
+							<SvgMsg />
+						</TouchableOpacity>
 						<Text>
 							{"時間：00:10:32 總距離：15.3km"}
 

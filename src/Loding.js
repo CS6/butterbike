@@ -41,7 +41,16 @@ export default class App extends Component {
 
 		this.mapView = null;
 	}
-
+	componentDidMount(){
+		this.timer=setTimeout(()=>{
+		    this.props.navigation.navigate('Home');//7秒后进入底部导航主页
+		},1000)
+	    }
+	    //卸载计时器
+	    componentWillUnmount(){
+		this.timer&&clearTimeout(this.timer);//同时为真的才执行卸载
+	    }
+	    
 
 
 	render() {

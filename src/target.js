@@ -143,13 +143,12 @@ export default class index_Screen extends React.Component {
             <SafeAreaView style={styles.container}>
       
               <View style={styles.container}>
-               
+{/*                
               <ScrollView style={styles.Scrollcontainer}
             refreshControl={
               <RefreshControl
                 refreshing={this.state.refreshing}
                 onRefresh={this._onRefresh} />}>
-            {/* <CardNotice infoTitle={this.state.announcement[0].title} infoBody={this.state.announcement[2].detail}/>  */}
 
             <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
 
@@ -176,9 +175,10 @@ export default class index_Screen extends React.Component {
               }}
             />
 
-            {/* <Card_A/> */}
 
-          </ScrollView>
+          </ScrollView> */}
+                    <Image style={{   }}
+						source={require("./components/img/icon/png/bg2.png")}/>
               </View>
             </SafeAreaView>
           );

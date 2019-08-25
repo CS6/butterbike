@@ -104,7 +104,7 @@ class LoginModal extends React.Component {
   }
   DONEModalVisible(visible) {
     this.setState({ modalPhoneVisible: visible }, () => {
-      this.props.onChangeDone()
+      // this.props.onChangeDone()
       console.log("onChangeStepDONE");
     })
   }
