@@ -98,6 +98,9 @@ class DetailsScreen extends React.Component {
 // };
 
 const RootStack = createStackNavigator({
+  Home: {
+    screen: Router
+  },
   Loding:{screen:Loding,  
      navigationOptions:{
     header:null,
@@ -110,9 +113,9 @@ Sets:{screen:Sets,
   navigationOptions:{
 //  header:null,
 }},
-  Home: {
-    screen: Router
-  },
+  // Home: {
+  //   screen: Router
+  // },
   MAP: {
     screen: MAP
   },

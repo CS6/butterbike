@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* appleMapTsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appleMapTsTests.m */; };
 		0792022DE0FEB5470DD5F90E /* libPods-appleMapTs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4633E152CDFC6179BACD935C /* libPods-appleMapTs.a */; };

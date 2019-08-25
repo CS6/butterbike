@@ -149,7 +149,7 @@ class LoginModal extends React.Component {
           onRequestClose={() => { alert("Modal has been closed.") }}
         >
           <TouchableHighlight onPress={() => {
-            this.setPhoneModalVisible(!this.state.modalPhoneVisible);
+            // this.setPhoneModalVisible(!this.state.modalPhoneVisible);
           }}>
             <View style={{ height: height * 0.2, paddingTop: height * 0.8, }}>
   

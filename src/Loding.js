@@ -75,8 +75,9 @@ export default class App extends Component {
 				
 					<ImageBackground style={{ width: width, height:height}}
 						source={require("../src/components/img/icon/png/butterbike.png")}>
-						<Text>
-							{"For some HAHARRRHA"}
+					
+						<Text  style={{ marginTop:30}}>
+							{"For pixnethackathon2019之DEMO"}
 
 						</Text>
 					</ImageBackground>

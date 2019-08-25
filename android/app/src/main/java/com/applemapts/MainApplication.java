@@ -9,7 +9,7 @@ import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+//import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 
 import com.horcrux.svg.SvgPackage;
 import com.oblador.vectoricons.VectorIconsPackage;

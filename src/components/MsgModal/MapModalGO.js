@@ -144,8 +144,9 @@ class LoginModal extends React.Component {
           onRequestClose={() => { onChangeStep }}
         >
                           <TouchableHighlight  onPress={() => {
-                            onChangeStep()
-                  this.setPhoneModalVisible(!this.state.modalPhoneVisible);}}>
+                            // onChangeStep()
+                  // this.setPhoneModalVisible(!this.state.modalPhoneVisible);
+                }}>
           <View style={{ height:height*0.2,paddingTop:height*0.8, }}>
 
             <View style={{

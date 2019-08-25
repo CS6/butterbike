@@ -228,7 +228,7 @@ EXP: {
      navigationOptions :{
       // headerTitle instead of title
       // headerTitle: <Top />,
-      title: '奶油行',
+      title: '奶油行 dev',
       headerStyle: {
         backgroundColor: '#F4DA17',
       },

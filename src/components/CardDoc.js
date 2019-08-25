@@ -73,7 +73,7 @@ export default class CardNotice extends Component {
           <Card body={
             <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
               <View style={{ flex: 1 }}>
-                {this.props.mapBody}
+                {/* {this.props.mapBody} */}
                 {/* <MiniMAP/> */}
               </View>
               <Text style={{ fontSize: 22, }}>{this.props.infoTitle}</Text>
@@ -102,7 +102,8 @@ export default class CardNotice extends Component {
           </TouchableHighlight>
           <View style={styles.background}>
             {/* {this.props.body} */}
-            <WebView source={{ uri: 'https://www.google.com/' }} />
+            {/* <WebView source={{ uri: 'https://www.google.com/' }} /> */}
+            <WebView source={{ uri: this.props.mapBody }} />
 
           </View>
         </Modal>

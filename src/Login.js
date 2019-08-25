@@ -119,7 +119,7 @@ export default class App extends Component<Props> {
      {/* <LoginModal/> */}
         <TextInput
           style={styles.TextBox}
-          placeholder="爲植物取名"
+          placeholder="爲奶油取名"
           //onChangeText={(text) => this.setState({text})}
           onChangeText={(text) => { this.PH = text; }}
 
