@@ -18,8 +18,8 @@ import {
 } from 'react-native';
 import { createBottomTabNavigator, SafeAreaView, createStackNavigator, withNavigation } from 'react-navigation';
 
-import Svgdone from '../img/icon/icons/btn_done_S';
-import Svgstop from '../img/icon/icons/btn_done_R';
+import Svgdone from '../img/icon/icons/btn_done_R';
+import Svgstop from '../img/icon/icons/btn_done_S';
 
 
 // 取得屏幕的宽高Dimensions
@@ -45,12 +45,17 @@ class LoginModal extends React.Component {
     };
   }
 
-  componentWillReceiveProps() {
-    //检测网络是否连接
-    // this.getStorage().done();
-    // this.check_ID_Storage().done();
-  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({modalPhoneVisible: nextProps.io});
+}
+  
+  componentDidMount() {
+    this.setState({ modalPhoneVisible: this.props.io });
+	}
 
+
+
+  
 
 
   // check_ID_Storage = async () => {
@@ -93,6 +98,18 @@ class LoginModal extends React.Component {
   setPhoneModalVisible(visible) {
     this.setState({ modalPhoneVisible: visible });
   }
+  setModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
+      this.props.onChangeStep()
+      console.log("onChangeStepToB");
+    })
+  }
+  DONEModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
+      this.props.onChangeDone()
+      console.log("onChangeStepDONE");
+    })
+  }
 
 
   // clear() {
@@ -110,16 +127,18 @@ class LoginModal extends React.Component {
 
 
   render() {
+    const { Step, onChangeStep } = this.props;  // 也是ES6的語法
+
     return (
       <View >
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.bottomLoginSetup}
           onPress={() => {
             this.setPhoneModalVisible(true)
           }} >
           <Text>Login "&" Setup Modal</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <Modal
           animationType={"slide"}
@@ -132,14 +151,14 @@ class LoginModal extends React.Component {
           <TouchableHighlight onPress={() => {
             this.setPhoneModalVisible(!this.state.modalPhoneVisible);
           }}>
-            <View style={{ height: height * 0.2, paddingTop: height * 0.65, }}>
+            <View style={{ height: height * 0.2, paddingTop: height * 0.8, }}>
   
               <View style={{
                 marginTop: -10, height: height * 0.2, justifyContent: 'center',
                 alignItems: 'center',
               }}>
                 {/* <Text>Is the Phone Modal</Text> */}
-                <View opacity={0.5} style={{ marginTop: 15, width: width * 0.95, height: height * 0.23, backgroundColor: "white", padding: 10, borderRadius: 15, }}>
+                <View opacity={0.9} style={{ marginTop: 15, width: width * 0.95, height: height * 0.23, backgroundColor: "white", padding: 10, borderRadius: 15, }}>
                 </View>
 
                 <View style={{
@@ -166,11 +185,17 @@ class LoginModal extends React.Component {
           <View style={styles.background}>
           <View style={{flexDirection:"row", alignItems: 'center', justifyContent: 'center',}}>
 
-         
+          
           <Image style={{   }}
 						source={require("../img/icon/png/CM2.png")}/>
+              <TouchableHighlight  onPress={() => {
+                  this.DONEModalVisible(!this.state.modalPhoneVisible);}}>
           <Svgdone style={styles.backgroundimg} />
+          </TouchableHighlight>
+          <TouchableHighlight  onPress={() => {
+                  this.setModalVisible(!this.state.modalPhoneVisible);}}>
           <Svgstop style={styles.backgroundimg} />
+          </TouchableHighlight>
           </View>
             {/* {this.props.body}
 
@@ -250,7 +275,7 @@ const styles = StyleSheet.create({
     // paddingVertical: 35,
     paddingHorizontal: 20,
     height: height * 0.15,
-    marginTop: height * 0.66,
+    marginTop: height * 0.8,
 
     //  backgroundColor: '#6E93',
     flexDirection: 'column',

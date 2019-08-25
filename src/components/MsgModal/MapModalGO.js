@@ -40,17 +40,23 @@ class LoginModal extends React.Component {
       phone: 'bbbbb',
       userToken: "778TIlaNHBcW1lwvk3dZ1HuTuPv1",
       modalPhoneVisible: false,
+      // modalPhoneVisible: props.someThings
+
 
     };
   }
 
-  componentWillReceiveProps() {
-    //检测网络是否连接
-    // this.getStorage().done();
-    // this.check_ID_Storage().done();
-  }
-  
+  // componentWillReceiveProps() {
+  //   this.setState({ modalPhoneVisible: this.props.io });
 
+  // }
+  componentWillReceiveProps(nextProps) {
+    this.setState({modalPhoneVisible: nextProps.io});
+}
+  
+  componentDidMount() {
+    this.setState({ modalPhoneVisible: this.props.io });
+	}
 
   // check_ID_Storage = async () => {
   //   //主動驗證是否登入
@@ -90,7 +96,13 @@ class LoginModal extends React.Component {
 
 
   setPhoneModalVisible(visible) {
-    this.setState({ modalPhoneVisible: visible });
+    this.setState({ modalPhoneVisible: visible} );
+  }
+  setModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
+      this.props.onChangeStep()
+      console.log("onChangeStep01");
+    })
   }
 
 
@@ -109,39 +121,39 @@ class LoginModal extends React.Component {
 
 
   render() {
+    const { Step, onChangeStep } = this.props;  // 也是ES6的語法
+
     return (
       <View >
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.bottomLoginSetup}
           onPress={() => {
             this.setPhoneModalVisible(true)
+            
           }} >
           <Text>Login "&" Setup Modal</Text>
         </TouchableOpacity>    
-        
+         */}
 <Modal
           animationType={"slide"}
           // transparent={false}
           transparent={true}
 
           visible={this.state.modalPhoneVisible}
-          onRequestClose={() => { alert("Modal has been closed.") }}
+          onRequestClose={() => { onChangeStep }}
         >
                           <TouchableHighlight  onPress={() => {
+                            onChangeStep()
                   this.setPhoneModalVisible(!this.state.modalPhoneVisible);}}>
-          <View style={{ height:height*0.2,paddingTop:height*0.65, }}>
-          {/* <View style={{backgroundColor: "#2E43",
-              // marginTop: -10, height:height*0.2, justifyContent: 'center',
-              // alignItems: 'center',
-            }}></View> */}
+          <View style={{ height:height*0.2,paddingTop:height*0.8, }}>
+
             <View style={{
               marginTop: -10, height:height*0.2, justifyContent: 'center',
               alignItems: 'center',
             }}>
-              {/* <Text>Is the Phone Modal</Text> */}
 
-              <View opacity={0.5} style={{ marginTop: 15, width: width * 0.95, height: height * 0.23, backgroundColor: "white", padding: 10, borderRadius: 15, }}>
+              <View opacity={0.9} style={{ marginTop: 15, width: width * 0.95, height: height * 0.23, backgroundColor: "white", padding: 10, borderRadius: 15, }}>
 
               </View>
 
@@ -151,11 +163,6 @@ class LoginModal extends React.Component {
                 justifyContent: "flex-end"
               }}>
 
-{/* 
-                <TouchableHighlight style={styles.Box} onPress={() => {
-                  this.setPhoneModalVisible(!this.state.modalPhoneVisible);}}>
-                  <Text>back to home</Text>
-                </TouchableHighlight> */}
               </View>
 
 
@@ -165,17 +172,24 @@ class LoginModal extends React.Component {
           <View style={styles.background}>
           <View style={{flexDirection:"row", alignItems: 'center', justifyContent: 'center',}}>
 
-         
+        
+          {/* <Button
+  onPress={onChangeStep}
+  title="Learn More"
+  color="#841584"
+  accessibilityLabel="Learn more about this purple button"
+/> */}
 <Image style={{   }}
   source={require("../img/icon/png/BM1.png")}/>
+          {/* <TouchableHighlight  onPress={onChangeStep }> */}
+          <TouchableHighlight  onPress={() => {
+                  this.setModalVisible(!this.state.modalPhoneVisible);}}>
           <SvgMsg style={styles.backgroundimg} />
+
+          </TouchableHighlight>
 
 </View>
 {this.props.body}
-{/* 
-<Text style={styles.TextTop}>Login "&" Setup Modal</Text>
-<Text style={styles.TextDown}>Login "&" Setup Modal</Text> */}
-
 </View>
         </Modal> 
          </View>
@@ -183,13 +197,6 @@ class LoginModal extends React.Component {
   }
 }
 
-
-{/*Ex
-  <Card body={
-  <View style={{ flex: 1, }}>
-    <Text style={{ fontSize: 22, }}>HI</Text>
-  </View>
-}/> */}
 
 
 const styles = StyleSheet.create({
@@ -249,7 +256,7 @@ const styles = StyleSheet.create({
         // paddingVertical: 35,
         paddingHorizontal: 20,
         height:height*0.15,
-       marginTop:height*0.66, 
+       marginTop:height*0.8, 
 
     //  backgroundColor: '#6E93',
   flexDirection: 'column', 

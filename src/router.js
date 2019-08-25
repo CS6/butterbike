@@ -94,7 +94,6 @@ class index_Screen extends React.Component {
 export default createBottomTabNavigator({
   
   
-  DocList:{screen:DocList},
 
   // MAP: { screen: GPSmap },
 
@@ -152,6 +151,8 @@ Adding: {
         source={require("./components/img/icon/png/BM1.png")}/>
     })
 },
+DocList:{screen:DocList},
+
   Sets:{screen:Sets},
   Login:{screen:Login},
 //    info: { screen: User },

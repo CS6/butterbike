@@ -45,82 +45,47 @@ class LoginModal extends React.Component {
     };
   }
 
-  componentWillReceiveProps() {
-    //检测网络是否连接
-    // this.getStorage().done();
-    // this.check_ID_Storage().done();
-  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({modalPhoneVisible: nextProps.io});
+}
   
+  componentDidMount() {
+    this.setState({ modalPhoneVisible: this.props.io });
+	}
 
-
-  // check_ID_Storage = async () => {
-  //   //主動驗證是否登入
-  //   try {
-  //     const value = await AsyncStorage.getItem('userToken');
-  //     console.warn(value);
-
-  //     if (value !== null) {
-  //       console.warn(value);
-  //       console.warn('已登入過', await AsyncStorage.getItem('userToken'));
-  //       // this.props.navigation.push('Home')
-  //       this._retrieveData();
-  //     }
-  //     else {
-  //       ///這段有問題...
-  //       Alert('請登入');
-  //       console.warn('請登入');
-  //     }
-
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // save() {
-  //   //设置多项
-  //   var keyValuePairs = [['userToken', this.state.userToken]]
-  //   AsyncStorage.multiSet(keyValuePairs, function (errs) {
-  //     if (errs) {
-  //       //TODO：存储出错
-  //       return;
-  //     }
-  //     console.warn('userToken保存成功!');
-  //   });
-  // }
 
 
   setPhoneModalVisible(visible) {
     this.setState({ modalPhoneVisible: visible });
   }
+  setModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
+      this.props.onChangeStep()
+      console.log("onChangeStepToB");
+    })
+  }
+  DONEModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
 
+      this.props.onChangeDone()
 
-  // clear() {
-  //   var _that = this;
-  //   AsyncStorage.clear(function (err) {
-  //     if (!err) {
-  //       _that.setState({
-  //         name: "",
-  //         phone: ""
-  //       });
-  //       alert('存储的数据已清除完毕!');
-  //     }
-  //   });
-  // }
+      console.log("onChangeStepDONE");
+    })
+  }
 
 
   render() {
     return (
       <View >
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.bottomLoginSetup}
           onPress={() => {
             this.setPhoneModalVisible(true)
           }} >
           <Text>Login "&" Setup Modal</Text>
         </TouchableOpacity>    
-        
+         */}
 <Modal
           animationType={"slide"}
           // transparent={false}
@@ -179,8 +144,16 @@ class LoginModal extends React.Component {
 <Image style={{   }}
   source={require("../img/icon/png/CM3.png")}/> */}
           {/* <SvgMsg style={styles.backgroundimg} /> */}
-          <SvgMsg  />
+
+
+          <TouchableHighlight  onPress={() => {
+                  this.DONEModalVisible(!this.state.modalPhoneVisible);}}>
           <SvgMsgDOC/>
+          </TouchableHighlight>
+          <TouchableHighlight  onPress={() => {
+                  this.setModalVisible(!this.state.modalPhoneVisible);}}>
+          <SvgMsg  />
+          </TouchableHighlight>
 
 </View>
 

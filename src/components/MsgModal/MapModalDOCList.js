@@ -18,9 +18,9 @@ import {
 } from 'react-native';
 import { createBottomTabNavigator, SafeAreaView, createStackNavigator, withNavigation } from 'react-navigation';
 
-import SvgMsg from '../img/icon/icons/CM1';
-import Svgdone from '../img/icon/icons/btn_done_L';
-import Svgstop from '../img/icon/icons/btn_done_R';
+import SvgMsg from '../img/icon/icons/Btn_hear';
+import SvgMsgDOC from '../img/icon/icons/DOC';
+import DocList from '../../DocList';
 
 
 // 取得屏幕的宽高Dimensions
@@ -47,52 +47,12 @@ class LoginModal extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({modalPhoneVisible: nextProps.io});
-}
-  
+    this.setState({ modalPhoneVisible: nextProps.io });
+  }
+
   componentDidMount() {
     this.setState({ modalPhoneVisible: this.props.io });
-	}
-
-
-
-  
-
-  // check_ID_Storage = async () => {
-  //   //主動驗證是否登入
-  //   try {
-  //     const value = await AsyncStorage.getItem('userToken');
-  //     console.warn(value);
-
-  //     if (value !== null) {
-  //       console.warn(value);
-  //       console.warn('已登入過', await AsyncStorage.getItem('userToken'));
-  //       // this.props.navigation.push('Home')
-  //       this._retrieveData();
-  //     }
-  //     else {
-  //       ///這段有問題...
-  //       Alert('請登入');
-  //       console.warn('請登入');
-  //     }
-
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // save() {
-  //   //设置多项
-  //   var keyValuePairs = [['userToken', this.state.userToken]]
-  //   AsyncStorage.multiSet(keyValuePairs, function (errs) {
-  //     if (errs) {
-  //       //TODO：存储出错
-  //       return;
-  //     }
-  //     console.warn('userToken保存成功!');
-  //   });
-  // }
+  }
 
 
 
@@ -107,28 +67,15 @@ class LoginModal extends React.Component {
   }
   DONEModalVisible(visible) {
     this.setState({ modalPhoneVisible: visible }, () => {
+
       this.props.onChangeDone()
+
       console.log("onChangeStepDONE");
     })
   }
 
-  // clear() {
-  //   var _that = this;
-  //   AsyncStorage.clear(function (err) {
-  //     if (!err) {
-  //       _that.setState({
-  //         name: "",
-  //         phone: ""
-  //       });
-  //       alert('存储的数据已清除完毕!');
-  //     }
-  //   });
-  // }
-
 
   render() {
-    const { Step, onChangeStep } = this.props;  // 也是ES6的語法
-
     return (
       <View >
 
@@ -143,67 +90,34 @@ class LoginModal extends React.Component {
         <Modal
           animationType={"slide"}
           // transparent={false}
-          transparent={true}
+          // transparent={true}
 
           visible={this.state.modalPhoneVisible}
           onRequestClose={() => { alert("Modal has been closed.") }}
         >
-          <TouchableHighlight onPress={() => {
-            this.setPhoneModalVisible(!this.state.modalPhoneVisible);
-          }}>
-            <View style={{ height: height * 0.2, paddingTop: height * 0.8, }}>
-  
-              <View style={{
-                marginTop: -10, height: height * 0.2, justifyContent: 'center',
-                alignItems: 'center',
+          <View style={{ flex: 1 }}>
+
+            <View style={{ flex: 1 }}>
+
+
+              <TouchableHighlight onPress={() => {
+                this.setModalVisible(!this.state.modalPhoneVisible);
+                // this.setModalVisible(!this.state.modalPhoneVisible);}}>
               }}>
-                {/* <Text>Is the Phone Modal</Text> */}
-                <View opacity={0.9} style={{ marginTop: 15, width: width * 0.95, height: height * 0.23, backgroundColor: "white", padding: 10, borderRadius: 15, }}>
-                </View>
 
                 <View style={{
-                  flex: 0.1, backgroundColor: "#2A2E43", alignItems: 'center',
+                  marginTop: -10, height: height * 0.2, justifyContent: 'center',
                   alignItems: 'center',
-                  justifyContent: "flex-end"
                 }}>
-
-                  {/* 
-                <TouchableHighlight style={styles.Box} onPress={() => {
-                  this.setPhoneModalVisible(!this.state.modalPhoneVisible);}}>
-                  <Text>back to home</Text>
-                </TouchableHighlight> */}
+                  <Text> EXIT</Text>
                 </View>
-
-
-              </View>
+              </TouchableHighlight>
             </View>
-          </TouchableHighlight>
-
-         
-
-
-          <View style={styles.background}>
-          <View style={{flexDirection:"row", alignItems: 'center', justifyContent: 'center',}}>
-
-         
-          <Image style={{   }}
-						source={require("../img/icon/png/CM1.png")}/>
-            <TouchableHighlight  onPress={() => {
-                  this.DONEModalVisible(!this.state.modalPhoneVisible);}}>
-          <Svgstop style={styles.backgroundimg} />
-          </TouchableHighlight>
-          <TouchableHighlight  onPress={() => {
-                  this.setModalVisible(!this.state.modalPhoneVisible);}}>
-          <Svgdone style={styles.backgroundimg} />
-          </TouchableHighlight>
-        
+            <View style={{ flex: 9, backgroundColor: "#DCF1DB" }}>
+              <DocList/>
+            </View>
           </View>
-            {/* {this.props.body}
 
-            <Text style={styles.TextTop}>Login "&" Setup Modal</Text>
-            <Text style={styles.TextDown}>Login "&" Setup Modal</Text> */}
-
-          </View>
         </Modal>
       </View>
     );
@@ -276,7 +190,7 @@ const styles = StyleSheet.create({
     // paddingVertical: 35,
     paddingHorizontal: 20,
     height: height * 0.15,
-    marginTop: height * 0.8,
+    marginTop: height * 0.4,
 
     //  backgroundColor: '#6E93',
     flexDirection: 'column',
@@ -287,13 +201,15 @@ const styles = StyleSheet.create({
 
   },
   TextTop: {
-    flex: 1,
+    fontSize: 40
 
   },
   TextDown: {
     marginTop: 20,
-    flex: 1,
-    paddingHorizontal: 45,
+    fontSize: 25,
+
+    // flex:1,
+    // paddingHorizontal: 45,
     // backgroundColor: '#6E93',
 
 

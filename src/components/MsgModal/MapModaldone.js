@@ -44,13 +44,17 @@ class LoginModal extends React.Component {
     };
   }
 
-  componentWillReceiveProps() {
-    //检测网络是否连接
-    // this.getStorage().done();
-    // this.check_ID_Storage().done();
-  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({modalPhoneVisible: nextProps.io});
+}
   
+  componentDidMount() {
+    this.setState({ modalPhoneVisible: this.props.io });
+	}
 
+
+
+  
 
   // check_ID_Storage = async () => {
   //   //主動驗證是否登入
@@ -92,7 +96,18 @@ class LoginModal extends React.Component {
   setPhoneModalVisible(visible) {
     this.setState({ modalPhoneVisible: visible });
   }
-
+  setModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
+      this.props.onChangeStep()
+      console.log("onChangeStepToB");
+    })
+  }
+  DONEModalVisible(visible) {
+    this.setState({ modalPhoneVisible: visible }, () => {
+      this.props.onChangeDone()
+      console.log("onChangeStepDONE");
+    })
+  }
 
   // clear() {
   //   var _that = this;
@@ -109,16 +124,18 @@ class LoginModal extends React.Component {
 
 
   render() {
+    const { Step, onChangeStep } = this.props;  // 也是ES6的語法
+
     return (
       <View >
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.bottomLoginSetup}
           onPress={() => {
             this.setPhoneModalVisible(true)
           }} >
           <Text>Login "&" Setup Modal</Text>
-        </TouchableOpacity>    
+        </TouchableOpacity>     */}
         
 <Modal
           animationType={"slide"}
@@ -179,7 +196,10 @@ class LoginModal extends React.Component {
 <Image style={{   }}
   source={require("../img/icon/png/CM3.png")}/>
           {/* <SvgMsg style={styles.backgroundimg} /> */}
+          <TouchableHighlight  onPress={() => {
+                  this.DONEModalVisible(!this.state.modalPhoneVisible);}}>
           <SvgMsg  />
+          </TouchableHighlight>
 
 </View>
 

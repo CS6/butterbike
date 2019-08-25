@@ -50,7 +50,8 @@ const SvgComponent = props => (
           fill="#fff"
         >
           <TSpan x={0} y={0}>
-            {'\u5B8C\u6210'}
+            {'\u66AB\u505C'}
+           
           </TSpan>
         </Text>
         <Rect
