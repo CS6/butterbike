@@ -8,12 +8,15 @@ import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
-import com.airbnb.android.react.lottie.LottiePackage;
+
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+
 import com.horcrux.svg.SvgPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+
 
 import java.util.List;
 
@@ -27,10 +30,14 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
+
       @SuppressWarnings("UnnecessaryLocalVariable")
       List<ReactPackage> packages = new PackageList(this).getPackages();
       // Packages that cannot be autolinked yet can be added manually here, for example:
+
       // packages.add(new MyReactNativePackage());
+//      packages.add(new RNGestureHandlerPackage());
+
       return packages;
     }
 
@@ -39,6 +46,8 @@ public class MainApplication extends Application implements ReactApplication {
       return "index";
     }
   };
+
+
 
   @Override
   public ReactNativeHost getReactNativeHost() {
