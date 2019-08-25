@@ -22,6 +22,7 @@ import GPSmap from './GPSmap'
 import Loding from './Loding'
 import Login from './Login'
 import Sets from './Set'
+import SetBK from './SetBK'
 import DocList from './DocList'
 
 // import Otherpage from './page/home/otherpage';
@@ -136,7 +137,9 @@ Target:{
 },
 
 EXP: {
-  screen: () => <EXP/>, // Empty screen
+  // screen: () => <EXP/>, // Empty screen
+  screen: () => <SetBK/>, // Empty screen
+
   navigationOptions: () => ({
       tabBarIcon: <Image
       style={{resizeMode:"contain",width:50}}
@@ -151,7 +154,7 @@ EXP: {
 //         source={require("./components/img/icon/png/BM1.png")}/>
 //     })
 // },
-DocList:{screen:DocList},
+// DocList:{screen:DocList},
 
   // Sets:{screen:Sets},
   // Login:{screen:Login},
