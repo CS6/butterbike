@@ -9,7 +9,7 @@
 import React, { Fragment } from 'react';
 import {
   Platform,
-  SafeAreaView,
+  // SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
@@ -33,13 +33,15 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import MAP from './src/index'
+
 import Router from './src/router'
 import Loding from './src/Loding'
 import Login from './src/Login'
 import Sets from './src/Set'
+import { createBottomTabNavigator, SafeAreaView, createSwitchNavigator, createStackNavigator, withNavigation } from 'react-navigation';
 
 // import { createBottomTabNavigator, createAppContainer, createSwitchNavigator, createStackNavigator, withNavigation } from 'react-navigation';
-import {createAppContainer, createStackNavigator } from 'react-navigation';
+// import {createAppContainer, createStackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 // import MapView, { Marker } from 'react-native-maps';
@@ -98,9 +100,9 @@ class DetailsScreen extends React.Component {
 // };
 
 const RootStack = createStackNavigator({
-  // Home: {
-  //   screen: Router
-  // },
+  Home: {
+    screen: Router
+  },
   Loding:{screen:Loding,  
      navigationOptions:{
     header:null,
@@ -113,9 +115,9 @@ Sets:{screen:Sets,
   navigationOptions:{
 //  header:null,
 }},
-  Home: {
-    screen: Router
-  },
+  // Home: {
+  //   screen: Router
+  // },
   MAP: {
     screen: MAP
   },
@@ -154,10 +156,11 @@ Sets:{screen:Sets,
 // );
 
 const prefix = 'bike://';
-const App = createAppContainer(RootStack);
-export default App ;
+// const App = createAppContainer(RootStack);
+// export default App ;
 
-// export default App = () => <RootStack/>;
+
+export default App = () => <RootStack/>;
 
 // export default App = () => <RootStack uriPrefix={prefix} />;
 // export default App;
