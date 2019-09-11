@@ -334,8 +334,9 @@ export default class BookRead extends Component<Props> {
           </MapView>
           <View style={{ width:width,height:height*0.15, position: "absolute", backgroundColor: "#FF0f0f" }}>
 
-            <Button title='Get Location' onPress={this.getLocation} disabled={loading || updatesEnabled} />
             <View style={styles.buttons}>
+            <Button title='Get Location' onPress={this.getLocation} disabled={loading || updatesEnabled} />
+
               <Button title='Start Observing' onPress={this.getLocationUpdates} disabled={updatesEnabled} />
               <Button title='Stop Observing' onPress={this.removeLocationUpdates} disabled={!updatesEnabled} />
             </View>
@@ -377,4 +378,10 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  buttons:{
+    paddingTop:50,
+    justifyContent: 'center',
+    flexDirection:"row",
+    alignItems: 'center',
+  }
 });

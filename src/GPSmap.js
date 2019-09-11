@@ -28,6 +28,7 @@ const { width, height } = Dimensions.get('window');
 import SvgMsgR from './components/img/icon/icons/btn_done_ON';
 import SvgMsgL from './components/img/icon/icons/btn_done_DOC';
 import KML from './MapKml'
+import Map from './map';
 
 import Expmap from './expmap';
 export default class App extends Component {
@@ -174,6 +175,7 @@ export default class App extends Component {
 				</View> */}
 				<View style={styles.mapbody}>
 					<Expmap />
+					{/* <Map/> */}
 					{/* <KML/> */}
 
 
