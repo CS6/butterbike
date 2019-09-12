@@ -10,6 +10,8 @@ import {
 	TextInput,
 	TouchableOpacity,
 	Alert,
+	Image,
+	ImageBackground,
 	SafeAreaView,
 	AsyncStorage,
 	Dimensions,
@@ -23,6 +25,7 @@ import Bikekml from './Bikekml'
 import MapViewDirections from 'react-native-maps-directions';
 import Geojson from 'react-native-geojson';
 
+import kkmmll from './geomaps/No_1_4';
 
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -465,6 +468,15 @@ const alcatraz = {
 					[121.10702, 24.8386, 105],
 					[121.10709, 24.83859, 105],
 					[121.10716, 24.83859, 106],
+					[120.2873520001947, 23.82568500026258],
+					[120.2879760001923, 23.82758599979411, -2.349999772377487e-005],
+					[120.2904649998599, 23.83513900006483, -2.349999772377487e-005],
+					[120.2912160003182, 23.83745699994063, -2.349999772377487e-005],
+					[120.2914090002253, 23.83822899956874, -2.349999772377487e-005],
+					[120.2914949996946, 23.83844399959094, -2.349999772377487e-005],
+					[120.2916240002475, 23.83859400021299, -2.349999772377487e-005],
+					[120.2917309997858, 23.83898000002705, -2.349999772377487e-005],
+					[120.2918170001545, 23.83928100041788, -2.349999772377487e-005],
 
 
 				]
@@ -475,6 +487,101 @@ const alcatraz = {
 		}
 	]
 };
+
+const TCR = {
+	type: 'FeatureCollection',
+	features: [
+		{
+			type: 'Feature',
+			properties: {},
+			geometry: {
+				type: 'LineString',
+				coordinates: [
+
+
+					[120.2873520001947, 23.82568500026258],
+					[120.2879760001923, 23.82758599979411, -2.349999772377487e-005],
+					[120.2904649998599, 23.83513900006483, -2.349999772377487e-005],
+					[120.2912160003182, 23.83745699994063, -2.349999772377487e-005],
+					[120.2914090002253, 23.83822899956874, -2.349999772377487e-005],
+					[120.2914949996946, 23.83844399959094, -2.349999772377487e-005],
+					[120.2916240002475, 23.83859400021299, -2.349999772377487e-005],
+					[120.2917309997858, 23.83898000002705, -2.349999772377487e-005],
+					[120.2918170001545, 23.83928100041788, -2.349999772377487e-005],
+
+
+				]
+				//       coordinates: [-123.42305755615234, 47.82687023785448],
+
+
+			}
+		}
+	]
+};
+class FlexHightView extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			initialPosition: 'unknown',
+			lastPosition: 'unknown',
+			currentLocation: 'unknown',
+			isLoading: false,
+			updatesEnabled: false,
+			isGetMyLocation: false,
+		};
+
+		this.mapView = null;
+	}
+	// 滑动tab
+	renderScrollableTab() {
+		if (this.state.isLoading) {
+			return (
+				<View style={{ alignItems: "center", justifyContent: "center", width: 45, backgroundColor: '#FFF', borderRadius: 50, paddingVertical: 5 }}>
+					{this.props.list}
+					{/* <Text color='#6787A0' >高!</Text> */}
+				</View>
+			)
+		}
+		else {
+			return (
+				<View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#AAFF', }}>
+
+					{/* <Text color='#6787A0' >低!</Text> */}
+				</View>
+
+			)
+		}
+	}
+	switch() {
+		this.setState({
+			// isLoading:"122",
+			isLoading: !this.state.isLoading,
+		})
+	}
+	render() {
+
+		return (
+
+			<View style={{ flexDirection: "column", width: 45, }}>
+				<View style={{ alignItems: "center", justifyContent: "center", paddingBottom: 5 }}>
+					{this.renderScrollableTab()}
+					{/* {this.props.list} */}
+
+				</View>
+				<View style={{ alignItems: "center", justifyContent: "center", width: 45, height: 45, backgroundColor: '#FFF', borderRadius: 50, marginTop: 5 }}>
+					<TouchableOpacity style={[styles.button, { backgroundColor: '#FFa' }]} onPress={() => { this.switch() }} >
+
+						<Text color='#6787A0' >環島路線</Text>
+
+					</TouchableOpacity>
+				</View>
+
+			</View>
+
+		);
+	}
+}
 
 
 export default class App extends Component {
@@ -1002,12 +1109,63 @@ export default class App extends Component {
 					showsUserLocation={true}
 					mode={"hybrid"}
 					userLocationAnnotationTitle={"你的位置"}>
-					<Geojson geojson={alcatraz} />
-					<Marker coordinate={{ latitude: Number(location.coords.latitude-0.05), longitude: Number(location.coords.longitude) }}>
-						<View style={{ backgroundColor: "red", padding: 2,borderRadius:30, }}>
-							<Text style={{ color:"#FFF" }}>你在這裡</Text>
+					<Geojson style={{ Color: "red", }} geojson={alcatraz} />
+					<Marker coordinate={{ latitude: Number(location.coords.latitude - 0.05), longitude: Number(location.coords.longitude) }}>
+						<View style={{ backgroundColor: "red", padding: 2, borderRadius: 30, }}>
+							<Text style={{ color: "#FFF" }}>你在這裡</Text>
 						</View>
 					</Marker>
+
+					<Marker coordinate={{ latitude: Number(location.coords.latitude + 0.5), longitude: Number(location.coords.longitude - 0.5) }}>
+						<View style={{ backgroundColor: "#110DF0", padding: 2, borderRadius: 30, }}>
+							<Text style={{ color: "#FFF" }}>工程師</Text>
+						</View>
+					</Marker>
+
+
+					<Marker coordinate={{ latitude: Number(24.1371278), longitude: Number(121.2735211) }}>
+						<View style={{ flexDirection: "column", alignItems: 'center', }}>
+							<Image style={{ resizeMode: "contain", width: 30, height: 30 }}
+								source={require("./components/img/icon/png/imgts.png")} />
+							<View style={{ backgroundColor: "#FFAF10", padding: 2, borderRadius: 30, }}>
+								<Text style={{ color: "#FFF" }}>前女友</Text>
+							</View>
+						</View>
+					</Marker>
+
+					<Marker coordinate={{ latitude: Number(24.4371278), longitude: Number(121.2735211) }}>
+						<View style={{ backgroundColor: "#AFFD10", padding: 2, borderRadius: 30, }}>
+							<Text style={{ color: "#FFF" }}>男友</Text>
+						</View>
+					</Marker>
+
+					<Polyline
+
+
+						coordinates={
+							// 	[
+							// 	{ latitude: 25.0583033, longitude: 121.514873 },
+							// 	{ latitude: 25.0683033, longitude: 121.524873 },
+							// 	{ latitude: 25.0783033, longitude: 121.544873 },
+							// 	{ latitude: 25.0883033, longitude: 121.564873 },
+							// 	{ latitude: 25.0983033, longitude: 121.584873 },
+							// 	{ latitude: 25.2083033, longitude: 121.604873 },
+							// 	{ latitude: 25.0583033, longitude: 121.514873 },
+							// ]
+							kkmmll
+						}
+						strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+						strokeColors={[
+							'#7F0000',
+							'#00000000', // no color, creates a "long" gradient between the previous and next coordinate
+							'#B24112',
+							'#E5845C',
+							'#238C23',
+							'#7F0000'
+						]}
+						strokeWidth={6}
+					/>
+
 					{this.state.coordinates.map((coordinate, index) =>
 						<MapView.Marker key={`coordinate_${index}`} coordinate={coordinate} /> // eslint-disable-line react/no-array-index-key
 					)}
@@ -1024,26 +1182,75 @@ export default class App extends Component {
 
 
 							onReady={this.onReady}
-							onError={this.onError}
-						/>
+							onError={this.onError} />
 					)}
 				</MapView>
-				<View style={styles.buttons}>
-					<Button title='go to my  Location' onPress={this.toMyLocation} disabled={loading || updatesEnabled} />
+				<View style={{ flexDirection: "row", width: 50, backgroundColor: '#FaF', justifyContent: "flex-start",margin:30 }}>
 
-					<Button title='Get Location' onPress={this.getLocation} disabled={loading || updatesEnabled} />
-					<Button title='call' onPress={this.call} />
 
-					<Button title='Start Observing' onPress={this.getLocationUpdates} disabled={updatesEnabled} />
-					<Button title='Stop Observing' onPress={this.removeLocationUpdates} disabled={!updatesEnabled} />
-				</View>
-				<View style={styles.result}>
-					{/* <Text>{alcatraz.features[0].geometry.coordinates.Bikekml}</Text> */}
-					<Text>{location.coords.latitude}</Text>
-					<Text>{location.coords.longitude}</Text>
+					<FlexHightView list={
+						<View style={styles.buttons}>
+							<ScrollView style={{ paddingTop: 5, borderRadius: 30, }}>
+								{/* <Image
+								style={{ resizeMode: "contain", width: 40 }}
+								source={require("./components/img/icon/png/imgts.png")} /> */}
+								<TouchableOpacity onPress={() => { }} style={[styles.button, { backgroundColor: '#aFF', }]}>
+									<Text >
+										_next textddddd
+								{this.state.index}
+									</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#FFa', }]} onPress={this.toMyLocation} disabled={loading || updatesEnabled}>
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#Faa', }]} title='Get Location' onPress={this.getLocation} disabled={loading || updatesEnabled}>
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aaa', }]} title='call' onPress={this.call}>
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aFa', }]} title='Start Observing' onPress={this.getLocationUpdates} disabled={updatesEnabled} >
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aaf', }]} title='Stop Observing' onPress={this.removeLocationUpdates} disabled={!updatesEnabled} >
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aFa', }]} title='Start Observing' onPress={this.getLocationUpdates} disabled={updatesEnabled} >
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aaf', }]} title='Stop Observing' onPress={this.removeLocationUpdates} disabled={!updatesEnabled} >
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aFa', }]} title='Start Observing' onPress={this.getLocationUpdates} disabled={updatesEnabled} >
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#aaf', }]} title='Stop Observing' onPress={this.removeLocationUpdates} disabled={!updatesEnabled} >
+									<Text >環島1號線</Text>
+								</TouchableOpacity>
+							</ScrollView>
 
-					<Text>{JSON.stringify(location, null, 4)}</Text>
-				</View>
+						</View>
+					} />
+
+					{/* <View >
+
+						<Button title='go to my  Location' onPress={this.toMyLocation} disabled={loading || updatesEnabled} />
+
+						<Button title='Get Location' onPress={this.getLocation} disabled={loading || updatesEnabled} />
+						<Button title='call' onPress={this.call} />
+
+						<Button title='Start Observing' onPress={this.getLocationUpdates} disabled={updatesEnabled} />
+						<Button title='Stop Observing' onPress={this.removeLocationUpdates} disabled={!updatesEnabled} />
+						<View style={styles.result}>
+							<Text>{location.coords.latitude}</Text>
+							<Text>{location.coords.longitude}</Text>
+
+							<Text>{JSON.stringify(location, null, 4)}</Text>
+						</View>
+					</View> */}
+
+				</View >
+
 
 			</View>
 		);
@@ -1053,9 +1260,32 @@ export default class App extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
+		alignItems: 'flex-end',
+		// justifyContent: 'center',
+		justifyContent: "flex-end",
 		paddingTop: 40,
 		backgroundColor: '#ecf0f1',
+	},
+	buttons: {
+		// flex: 1,
+		width: 45,
+		height: 45 * 6,
+		borderRadius: 30,
+		alignItems: 'center',
+		justifyContent: 'center',
+		// paddingTop: 40,
+		marginHorizontal: 10,
+		backgroundColor: '#FFF',
+	},
+	button: {
+		// flex: 1,
+		width: 40,
+		height: 40,
+		borderRadius: 30,
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginVertical: 1.5,
+		marginHorizontal: 2.5,
+
 	},
 });

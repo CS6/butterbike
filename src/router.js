@@ -90,8 +90,6 @@ class index_Screen extends React.Component {
 
 
 
-
-
 export default createBottomTabNavigator({
   
   
@@ -109,19 +107,30 @@ export default createBottomTabNavigator({
  MAP:{
   screen: () => <GPSmap/>, // Empty screen
   navigationOptions: () => ({
-      tabBarIcon: <Image
-      style={{resizeMode:"contain",width:60}}
-      source={require("./components/img/icon/png/AM1.png")}/>
+      // tabBarIcon: <Image
+      // style={{resizeMode:"contain",width:60}}
+      // source={require("./components/img/icon/png/AM1.png")}/>
+      tabBarIcon: ({ focused, tintColor }) => (
+        <Image
+        source={focused ? require('./components/img/icon/png/BM1.png') : require('./components/img/icon/png/AM1.png')}
+        style={{resizeMode:"contain",width:50,marginBottom:15}}
+        />
+    )
   })
 },
 
   History:{
     screen: () => <History/>, // Empty screen
     navigationOptions: () => ({
-        tabBarIcon: <Image
-        style={{resizeMode:"contain",width:50}}
-
-        source={require("./components/img/icon/png/AM2.png")}/>
+        // tabBarIcon: <Image
+        // style={{resizeMode:"contain",width:50}}
+        // source={require("./components/img/icon/png/AM2.png")}/>
+        tabBarIcon: ({ focused, tintColor }) => (
+          <Image
+          source={focused ? require('./components/img/icon/png/BM2.png') : require('./components/img/icon/png/AM2.png')}
+          style={{resizeMode:"contain",width:50,marginBottom:22}}
+          />
+      )
     })
 },
 
@@ -129,10 +138,16 @@ export default createBottomTabNavigator({
 Target:{
   screen: () => <Target/>, // Empty screen
   navigationOptions: () => ({
-      tabBarIcon: <Image
-      style={{resizeMode:"contain",width:50}}
+      // tabBarIcon: <Image
+      // style={{resizeMode:"contain",width:50}}
+      // source={require("./components/img/icon/png/AM3.png")}/>
 
-      source={require("./components/img/icon/png/AM3.png")}/>
+      tabBarIcon: ({ focused, tintColor }) => (
+        <Image
+        source={focused ? require('./components/img/icon/png/BM3.png') : require('./components/img/icon/png/AM3.png')}
+        style={{resizeMode:"contain",width:50,marginBottom:20}}
+        />
+    )
   })
 },
 
@@ -141,10 +156,23 @@ EXP: {
   screen: () => <SetBK/>, // Empty screen
 
   navigationOptions: () => ({
-      tabBarIcon: <Image
-      style={{resizeMode:"contain",width:50}}
+    
+      // tabBarIcon: <Image
+      // style={{resizeMode:"contain",width:50}}
 
-      source={require("./components/img/icon/png/AM4.png")}/>
+      // source={require("./components/img/icon/png/AM4.png")}/>
+    //   tabBarIcon: ({ focused, tintColor }) => (
+    //     <Image
+    //     source={focused ? require('./components/img/icon/png/AM4.png') : require('./components/img/icon/png/AM3.png')}
+    //     style={{resizeMode:"contain",width:50, tintColor: tintColor}}
+    //     />
+    // )
+    tabBarIcon: ({ focused, tintColor }) => (
+      <Image
+      source={focused ? require('./components/img/icon/png/BM4.png') : require('./components/img/icon/png/AM4.png')}
+      style={{resizeMode:"contain",width:50 ,marginBottom:5}}
+      />
+  )
   })
 },
 // Adding: {
@@ -228,7 +256,7 @@ EXP: {
      navigationOptions :{
       // headerTitle instead of title
       // headerTitle: <Top />,
-      title: '奶油行 dev',
+      // title: '奶油行 dev',
       headerStyle: {
         backgroundColor: '#F4DA17',
       },
