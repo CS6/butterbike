@@ -26,6 +26,8 @@ import MapViewDirections from 'react-native-maps-directions';
 import Geojson from 'react-native-geojson';
 
 import kkmmll from './geomaps/No_1_4';
+import TWkml from './geomaps/TW';
+import GpsToLoca from './geomaps/GpsToLoca'
 
 const { width, height } = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -487,37 +489,6 @@ const alcatraz = {
 		}
 	]
 };
-
-const TCR = {
-	type: 'FeatureCollection',
-	features: [
-		{
-			type: 'Feature',
-			properties: {},
-			geometry: {
-				type: 'LineString',
-				coordinates: [
-
-
-					[120.2873520001947, 23.82568500026258],
-					[120.2879760001923, 23.82758599979411, -2.349999772377487e-005],
-					[120.2904649998599, 23.83513900006483, -2.349999772377487e-005],
-					[120.2912160003182, 23.83745699994063, -2.349999772377487e-005],
-					[120.2914090002253, 23.83822899956874, -2.349999772377487e-005],
-					[120.2914949996946, 23.83844399959094, -2.349999772377487e-005],
-					[120.2916240002475, 23.83859400021299, -2.349999772377487e-005],
-					[120.2917309997858, 23.83898000002705, -2.349999772377487e-005],
-					[120.2918170001545, 23.83928100041788, -2.349999772377487e-005],
-
-
-				]
-				//       coordinates: [-123.42305755615234, 47.82687023785448],
-
-
-			}
-		}
-	]
-};
 class FlexHightView extends React.Component {
 	constructor(props) {
 		super(props);
@@ -596,6 +567,18 @@ export default class App extends Component {
 			loading: false,
 			updatesEnabled: false,
 			isGetMyLocation: false,
+			RecordGPStime: "XX",
+			RecordGPS: [],
+			historys: [
+				{ latitude: 25.0583033, longitude: 121.514873 },
+				{ latitude: 25.0683033, longitude: 121.524873 },
+				{ latitude: 25.0783033, longitude: 121.544873 },
+				{ latitude: 25.0883033, longitude: 121.564873 },
+				{ latitude: 25.0983033, longitude: 121.584873 },
+				{ latitude: 25.2083033, longitude: 121.604873 },
+				{ latitude: 25.0583033, longitude: 121.514873 },
+			],
+			history: false,
 			location: {
 				coords: {
 					// latitude: 24.147782,
@@ -630,7 +613,27 @@ export default class App extends Component {
 
 		this.mapView = null;
 	}
+
 	watchId = null;
+	componentDidMount() {
+		this.day();
+	}
+	day() {
+		var date = new Date().getDate(); //Current Date
+		var month = new Date().getMonth() + 1; //Current Month
+		var year = new Date().getFullYear(); //Current Year
+		var hours = new Date().getHours(); //Current Hours
+		var min = new Date().getMinutes(); //Current Minutes
+		var sec = new Date().getSeconds(); //Current Seconds
+		this.setState({
+			//Setting the value of the date time
+			RecordGPStime:
+				date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec,
+		});
+		console.warn(date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec)
+
+	}
+
 
 	call() {
 		// let G=this.state.location.coords.longitude
@@ -740,9 +743,6 @@ export default class App extends Component {
 	onError = (errorMessage) => {
 		Alert.alert(errorMessage);
 	}
-	componentDidMount() {
-
-	}
 
 	hasLocationPermission = async () => {
 		if (Platform.OS === 'ios' ||
@@ -835,11 +835,13 @@ export default class App extends Component {
 			this.watchId = Geolocation.watchPosition(
 				(position) => {
 					this.setState({ location: position });
-					console.log(position);
+					this.state.RecordGPS.push(position);
+					this.state.historys.push({"latitude":position.coords.latitude,"longitude":position.coords.longitude});
+					console.warn(position.coords.latitude,position.coords.longitude);
 				},
 				(error) => {
 					this.setState({ location: error });
-					console.log(error);
+					console.warn(error);
 				},
 				{ enableHighAccuracy: true, distanceFilter: 0, interval: 5000, fastestInterval: 2000 }
 			);
@@ -847,11 +849,77 @@ export default class App extends Component {
 	}
 
 	removeLocationUpdates = () => {
+
 		if (this.watchId !== null) {
 			Geolocation.clearWatch(this.watchId);
-			this.setState({ updatesEnabled: false })
+			this.setState({ updatesEnabled: false, history: true, })
+		}
+		console.warn("還沒存擋喔");
+		// console.warn(this.state.RecordGPS);
+
+	}
+	onMapRecord() {
+		if (this.state.history == true) {
+			// if (this.state.RecordGPS[0] == undefined) {
+			// 	return (
+			// 		<Text>sdsdsdsd</Text>
+			// 	)
+			// }
+			// else {
+
+			// 	console.warn(this.state.RecordGPS)
+			// 	// let data = [];
+			// 	// // let i=0;
+			// 	let data =JSON.parse(this.state.RecordGPS)
+			// 	for(i=0;i<this.state.RecordGPS.length;i++){
+			// 		// console.warn(this.state.RecordGPS[i].coords.latitude)
+			// 		console.warn(this.state.RecordGPS.coords.latitude)
+
+			// 	}
+
+			// 	// while (this.state.RecordGPS.length) {
+			// 	// 	console.warn(this.state.RecordGPS[i])
+			// 	// 	// data.push({
+			// 	// 	// 	latitude: this.state.RecordGPS[i].location.coords.latitude,
+			// 	// 	// 	longitude: this.state.RecordGPS[i].location.coords.longitude
+			// 	// 	// });
+			// 	// 	i++;
+			// 	// 	console.warn(i)
+			// 	// }
+			// 	this.setState({ history: false })
+			// }
+			return (
+				// <Text>{this.state.RecordGPS[0].location.coords.latitude}
+				// 	{this.state.RecordGPS[0].location.coords.longitude}</Text>
+				<Polyline
+
+
+					coordinates={
+						// [
+						// 	{ latitude: 25.0583033, longitude: 121.514873 },
+						// 	{ latitude: 25.0683033, longitude: 121.524873 },
+						// 	{ latitude: 25.0783033, longitude: 121.544873 },
+						// 	{ latitude: 25.0883033, longitude: 121.564873 },
+						// 	{ latitude: 25.0983033, longitude: 121.584873 },
+						// 	{ latitude: 25.2083033, longitude: 121.604873 },
+						// 	{ latitude: 25.0583033, longitude: 121.514873 },
+						// ]
+						this.state.historys
+						// data
+						// TWkml
+					}
+					strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+					strokeColors={[
+						'#FAA0AF',
+						'#00000000', // no color, creates a "long" gradient between the previous and next coordinate
+					]}
+					strokeWidth={6}
+				/>
+
+			)
 		}
 	}
+
 	mapStyle = [[
 		{
 			"elementType": "geometry",
@@ -1138,10 +1206,9 @@ export default class App extends Component {
 							<Text style={{ color: "#FFF" }}>男友</Text>
 						</View>
 					</Marker>
+					{this.onMapRecord()}
 
 					<Polyline
-
-
 						coordinates={
 							// 	[
 							// 	{ latitude: 25.0583033, longitude: 121.514873 },
@@ -1153,6 +1220,7 @@ export default class App extends Component {
 							// 	{ latitude: 25.0583033, longitude: 121.514873 },
 							// ]
 							kkmmll
+							// TWkml
 						}
 						strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
 						strokeColors={[
@@ -1185,9 +1253,13 @@ export default class App extends Component {
 							onError={this.onError} />
 					)}
 				</MapView>
-				<View style={{ flexDirection: "row", width: 50, backgroundColor: '#FaF', justifyContent: "flex-start",margin:30 }}>
+				<GpsToLoca />
 
+				<View style={{ flexDirection: "row", width: 50, backgroundColor: '#FaF', justifyContent: "flex-start", margin: 30 }}>
 
+					{/* <Text>{this.RecordGPS[0].location.coords.latitude}</Text>
+<Text>{this.RecordGPS[0].location.coords.longitude}</Text> */}
+					{/* {this.onMapRecord()} */}
 					<FlexHightView list={
 						<View style={styles.buttons}>
 							<ScrollView style={{ paddingTop: 5, borderRadius: 30, }}>
@@ -1200,6 +1272,18 @@ export default class App extends Component {
 								{this.state.index}
 									</Text>
 								</TouchableOpacity>
+								<TouchableOpacity style={[styles.button, { backgroundColor: '#FFa', }]} onPress={this.toMyLocation} disabled={loading || updatesEnabled}>
+									<Text >toMyLocation</Text>
+								</TouchableOpacity><TouchableOpacity style={[styles.button, { backgroundColor: '#FFa', }]} onPress={this.getLocation} disabled={loading || updatesEnabled}>
+									<Text >getLocation</Text>
+								</TouchableOpacity><TouchableOpacity style={[styles.button, { backgroundColor: '#FFa', }]} onPress={this.getLocationUpdates}>
+									<Text >getLocationUpdates</Text>
+								</TouchableOpacity><TouchableOpacity style={[styles.button, { backgroundColor: '#FFa', }]} onPress={this.removeLocationUpdates} >
+									<Text >removeLocationUpdates</Text>
+								</TouchableOpacity>
+
+
+
 								<TouchableOpacity style={[styles.button, { backgroundColor: '#FFa', }]} onPress={this.toMyLocation} disabled={loading || updatesEnabled}>
 									<Text >環島1號線</Text>
 								</TouchableOpacity>
