@@ -4,7 +4,8 @@ import {
         View,
         Dimensions,
         TextInput,
-        Button
+        Button,
+        Share,
 } from 'react-native';
 import SvgMsgL from '../components/img/icon/icons/btn_done_R';
 
@@ -84,6 +85,29 @@ export default class Card extends Component {
         Geolocation.clearWatch(watchID);
      }
            
+     onShare = async () => {
+        try {
+          const result = await Share.share({
+                title:"React Native",
+            message:
+              'React Native | A framework for building native apps using React',
+              url:"www.google.com",
+          });
+    
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+      };
+    
         render() {
                 return (
                         <View style={[styles.Box]}>
@@ -105,7 +129,7 @@ export default class Card extends Component {
                                         <Button title='获取位置' onPress={this.getLocation.bind(this)}  />
                                         <Button title='开始监听' onPress={this.beginWatch.bind(this)}  />
                                         <Button title='停止监听' onPress={this.stopWatch.bind(this)}  />
-
+                                        <Button onPress={this.onShare} title="Share" />
                                 </View>
                                 <SvgMsgL />
                                 {this.props.body}
