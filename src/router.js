@@ -24,6 +24,7 @@ import Login from './Login'
 import Sets from './Set'
 import SetBK from './SetBK'
 import DocList from './DocList'
+import PrtSc from './geomaps/PrtSc'
 
 // import Otherpage from './page/home/otherpage';
 // import otherHpage from './page/home/otherHpage';
@@ -105,7 +106,7 @@ export default createBottomTabNavigator({
   // Our plus button
 
  MAP:{
-  screen: () => <GPSmap/>, // Empty screen
+  screen: () => <PrtSc/>, // Empty screen
   navigationOptions: () => ({
       // tabBarIcon: <Image
       // style={{resizeMode:"contain",width:60}}
