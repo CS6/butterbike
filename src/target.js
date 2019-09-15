@@ -2,14 +2,15 @@
 這個頁面是作為子頁面的路由器
 使用TabBar (createBottomTabNavigator)
 作為主畫面的進入點使用
-*/ 
+*/
 
 import React from 'react';
-import { createBottomTabNavigator, createStackNavigator,createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 import {
-  Component, StyleSheet, Platform, Image, TextInput,  StatusBar,Alert,AsyncStorage,
+  Component, StyleSheet, Platform, Image, TextInput, StatusBar, Alert, AsyncStorage,
   RefreshControl,
-   Button, Text, View, ScrollView, TouchableOpacity, Dimensions,SafeAreaView
+  Button, Text, View, ScrollView, TouchableOpacity, Dimensions,        SafeAreaView
+
 
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -25,132 +26,132 @@ const { width, height } = Dimensions.get('window');
 
 
 export default class index_Screen extends React.Component {
-        static navigationOptions = {
-          // headerTitle instead of title
-          // headerTitle: <Top />,
-          title: '獎章',
-      
-        };
-        constructor() {
-                super();
-                // var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-            
-                this.state = {
-                  refreshing: false,
-                  isLoading: true,
-                  userToken: "",
-                  // dataSource:{"name":"as","price":10},
-                //   dataSource: ds.cloneWithRows(['row 1', 'row 2']),
-            
-                  announcement: [
-                    {
-                      "Containers": -1,
-                      "Created": 1559585757,
-                      "Id": "sha256:00000000",
-                      "Labels": null,
-                      "ParentId": "sha256:00000000",
-                      "RepoDigests": null,
-                      "RepoTags": [
-                        "null:null"
-                      ],
-                      "SharedSize": -1,
-                      "Size": 19201080,
-                      "VirtualSize": 166244113
-                    },{
-                        "Containers": -1,
-                        "Created": 1559585757,
-                        "Id": "sha256:00000000",
-                        "Labels": null,
-                        "ParentId": "sha256:00000000",
-                        "RepoDigests": null,
-                        "RepoTags": [
-                          "null:null"
-                        ],
-                        "SharedSize": -1,
-                        "Size": 19201080,
-                        "VirtualSize": 166244113
-                      },{
-                        "Containers": -1,
-                        "Created": 1559585757,
-                        "Id": "sha256:00000000",
-                        "Labels": null,
-                        "ParentId": "sha256:00000000",
-                        "RepoDigests": null,
-                        "RepoTags": [
-                          "null:null"
-                        ],
-                        "SharedSize": -1,
-                        "Size": 19201080,
-                        "VirtualSize": 166244113
-                      },{
-                        "Containers": -1,
-                        "Created": 1559585757,
-                        "Id": "sha256:00000000",
-                        "Labels": null,
-                        "ParentId": "sha256:00000000",
-                        "RepoDigests": null,
-                        "RepoTags": [
-                          "null:null"
-                        ],
-                        "SharedSize": -1,
-                        "Size": 19201080,
-                        "VirtualSize": 166244113
-                      },{
-                        "Containers": -1,
-                        "Created": 1559585757,
-                        "Id": "sha256:00000000",
-                        "Labels": null,
-                        "ParentId": "sha256:00000000",
-                        "RepoDigests": null,
-                        "RepoTags": [
-                          "null:null"
-                        ],
-                        "SharedSize": -1,
-                        "Size": 19201080,
-                        "VirtualSize": 166244113
-                      },
-                  ],
-                };
-              }
-        // 滑动tab
-        renderScrollableTab() {
-      
-          return (
-            <View style={{ flex: 1,backgroundColor:'black', justifyContent: 'center', alignItems: 'center' }}>
-      
-              <Text  color='#6787A0' >Home!</Text>
-              <Icon name="code" size={30} color="#900" />
-              <MiniMAP/>
-              <Icon name="battery-full" size={30} color="#6787A0" />
-              <MiniMAP/>
-              <Icon name="battery-three-quarters" size={30} color="#900" />
-              <MiniMAP/>
-              <Icon name="battery-half" size={30} color="#900" />
-              <Icon name="battery-quarter" size={30} color="#900" />
-              <Icon name="battery-empty" size={30} color="#900" />
-              <Icon name="bed" size={30} color="#900" />
-      
-              
-              <Icon name="american-sign-language-interpreting" size={30} color="#777" />
-      
-            </View>
-      
-          )
-        }
-      
-        render() {
-          return (
-            <SafeAreaView style={styles.container}>
-      
-              <View style={styles.container}>
-{/*                
-              <ScrollView style={styles.Scrollcontainer}
-            refreshControl={
-              <RefreshControl
-                refreshing={this.state.refreshing}
-                onRefresh={this._onRefresh} />}>
+  static navigationOptions = {
+    // headerTitle instead of title
+    // headerTitle: <Top />,
+    title: '獎章',
 
-            <View style={{ flex: 1, flexDirection: 'row',flexWrap:"wrap" }}>
+  };
+  constructor() {
+    super();
+    // var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
+    this.state = {
+      refreshing: false,
+      isLoading: true,
+      userToken: "",
+      // dataSource:{"name":"as","price":10},
+      //   dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+
+      announcement: [
+        {
+          "Containers": -1,
+          "Created": 1559585757,
+          "Id": "sha256:00000000",
+          "Labels": null,
+          "ParentId": "sha256:00000000",
+          "RepoDigests": null,
+          "RepoTags": [
+            "null:null"
+          ],
+          "SharedSize": -1,
+          "Size": 19201080,
+          "VirtualSize": 166244113
+        }, {
+          "Containers": -1,
+          "Created": 1559585757,
+          "Id": "sha256:00000000",
+          "Labels": null,
+          "ParentId": "sha256:00000000",
+          "RepoDigests": null,
+          "RepoTags": [
+            "null:null"
+          ],
+          "SharedSize": -1,
+          "Size": 19201080,
+          "VirtualSize": 166244113
+        }, {
+          "Containers": -1,
+          "Created": 1559585757,
+          "Id": "sha256:00000000",
+          "Labels": null,
+          "ParentId": "sha256:00000000",
+          "RepoDigests": null,
+          "RepoTags": [
+            "null:null"
+          ],
+          "SharedSize": -1,
+          "Size": 19201080,
+          "VirtualSize": 166244113
+        }, {
+          "Containers": -1,
+          "Created": 1559585757,
+          "Id": "sha256:00000000",
+          "Labels": null,
+          "ParentId": "sha256:00000000",
+          "RepoDigests": null,
+          "RepoTags": [
+            "null:null"
+          ],
+          "SharedSize": -1,
+          "Size": 19201080,
+          "VirtualSize": 166244113
+        }, {
+          "Containers": -1,
+          "Created": 1559585757,
+          "Id": "sha256:00000000",
+          "Labels": null,
+          "ParentId": "sha256:00000000",
+          "RepoDigests": null,
+          "RepoTags": [
+            "null:null"
+          ],
+          "SharedSize": -1,
+          "Size": 19201080,
+          "VirtualSize": 166244113
+        },
+      ],
+    };
+  }
+  // 滑动tab
+  renderScrollableTab() {
+
+    return (
+      <View style={{ flex: 1, backgroundColor: 'black', justifyContent: 'center', alignItems: 'center' }}>
+
+        <Text color='#6787A0' >Home!</Text>
+        <Icon name="code" size={30} color="#900" />
+        <MiniMAP />
+        <Icon name="battery-full" size={30} color="#6787A0" />
+        <MiniMAP />
+        <Icon name="battery-three-quarters" size={30} color="#900" />
+        <MiniMAP />
+        <Icon name="battery-half" size={30} color="#900" />
+        <Icon name="battery-quarter" size={30} color="#900" />
+        <Icon name="battery-empty" size={30} color="#900" />
+        <Icon name="bed" size={30} color="#900" />
+
+
+        <Icon name="american-sign-language-interpreting" size={30} color="#777" />
+
+      </View>
+
+    )
+  }
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+
+      <View style={styles.container}>
+
+        <ScrollView style={styles.Scrollcontainer}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this._onRefresh} />}>
+
+          <View style={{ flex: 1, flexDirection: 'row', flexWrap: "wrap" }}>
 
             {this.state.announcement.map((note) => {
               return (
@@ -160,34 +161,37 @@ export default class index_Screen extends React.Component {
                   infoSize={note.Size}
                   infoLabels={note.Labels}
                   infoCreated={note.Created}
-                  />
+                />
               );
             })}
 
 
-</View>
-            <Button
-              title="新2"
-              onPress={() => {
-                // this._retrieveData();
-                this.getStorage().done();
+          </View>
+          <Button
+            title="新2"
+            onPress={() => {
+              // this._retrieveData();
+              this.getStorage().done();
 
-              }}
-            />
+            }}
+          />
 
 
-          </ScrollView> */}
-                    <Image style={{   }}
-						source={require("./components/img/icon/png/bg2.png")}/>
-              </View>
-            </SafeAreaView>
+        </ScrollView>
+        {/* <Image style={{   }}
+            source={require("./components/img/icon/png/bg2.png")}/>*/}
+            {/* </SafeAreaView> */ }
+      </View> 
+      </SafeAreaView> 
+
+            
           );
-        }
-      }
-      
-      
-      
-      
+  }
+}
+
+
+
+
 
 
 
@@ -196,14 +200,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-//     alignItems: 'center',
+    //     alignItems: 'center',
     backgroundColor: '#EFEFEF',
     ///下方tab bar 顏色 iphone X 下瀏海 顏色
-  },  background: {
+  }, background: {
     height: 800,
     width: 600,
     position: 'absolute',
-    
+
   },
   logo: {
     height: 120,

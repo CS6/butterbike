@@ -101,7 +101,11 @@ class DetailsScreen extends React.Component {
 
 const RootStack = createStackNavigator({
   Home: {
-    screen: Router
+    screen: Router,
+    navigationOptions:{
+      header:null,
+  }
+
   },
   Loding:{screen:Loding,  
      navigationOptions:{

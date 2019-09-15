@@ -106,7 +106,7 @@ export default createBottomTabNavigator({
   // Our plus button
 
  MAP:{
-  screen: () => <PrtSc/>, // Empty screen
+  screen: () => <GPSmap/>, // Empty screen
   navigationOptions: () => ({
       // tabBarIcon: <Image
       // style={{resizeMode:"contain",width:60}}
@@ -153,8 +153,8 @@ Target:{
 },
 
 EXP: {
-  // screen: () => <EXP/>, // Empty screen
-  screen: () => <SetBK/>, // Empty screen
+  // screen: () => <SetBK/>, // Empty screen
+  screen: () => <PrtSc/>, // Empty screen
 
   navigationOptions: () => ({
     
@@ -272,6 +272,9 @@ EXP: {
       activeTintColor: '#6787A0',
       inactiveTintColor: '#7C7C7C',
       style: {
+        // marginTop:30,
+        // height:50,
+        // marginBottom:10,
         backgroundColor: '#EFEFEF',
       },
     },
