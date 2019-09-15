@@ -22,6 +22,7 @@ const GOOGLE_MAPS_APIKEY = 'AIzaSyC8Yg8Ig6VEZIWz8cWH3yfYOjAGzqIpDMI';
 // type KmlContainer {
 //         markers: [Marker]
 //       }
+
 const alcatraz = {
         type: 'FeatureCollection',
         features: [

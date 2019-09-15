@@ -33,7 +33,6 @@
 			</array>
 		</dict>
 	</array>
-	
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -51,14 +50,10 @@
 			</dict>
 		</dict>
 	</dict>
-	   
 	<key>NSCameraUsageDescription</key>
-		<string>NSCameraUsage</string>
+	<string>NSCameraUsage</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>NS＿Photo存到本機</string>
-
-
-
+	<string>NS＿PhotoSave</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>HAHA</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

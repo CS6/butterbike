@@ -35,7 +35,6 @@
 		E6D0BDD97DBD4D8D85449B03 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B37588DBD4884A2FB98F20AF /* MaterialIcons.ttf */; };
 		EA263432E4B541FB917D52BC /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFF14B9DF53F4D1A9D6A2AD5 /* FontAwesome5_Solid.ttf */; };
 		F90320FB37C064C2FBC65C5F /* libPods-appleMapTs-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2E569AD9407B7ACF097BF4 /* libPods-appleMapTs-tvOSTests.a */; };
-		FB8DE123232D7F28001D52F0 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8DE122232D7E6E001D52F0 /* libRCTCameraRoll.a */; };
 		FBA80E28231038EC00757601 /* DoubleConversion.podspec in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA80E27231038EC00757601 /* DoubleConversion.podspec */; };
 		FBA80E2A23103A8C00757601 /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA80E2923103A8C00757601 /* libDoubleConversion.a */; };
 		FDBB78BE835D4BCC89295CDD /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAEFB9F0E2354914A9CC03DC /* FontAwesome5_Regular.ttf */; };
@@ -55,13 +54,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "appleMapTs-tvOS";
-		};
-		FB8DE121232D7E6E001D52F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB8DE11D232D7E6D001D52F0 /* RCTCameraRoll.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
-			remoteInfo = RCTCameraRoll;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -108,7 +100,6 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FA25520B0641E251EF213C07 /* Pods-appleMapTsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleMapTsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appleMapTsTests/Pods-appleMapTsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FB8DE11D232D7E6D001D52F0 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		FBA80E27231038EC00757601 /* DoubleConversion.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = DoubleConversion.podspec; path = "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"; sourceTree = "<group>"; };
 		FBA80E2923103A8C00757601 /* libDoubleConversion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDoubleConversion.a; path = "../../../../zenMW/zenscape/ios/build/zenscape/Build/Products/Debug-iphonesimulator/DoubleConversion/libDoubleConversion.a"; sourceTree = "<group>"; };
 		FC02C3BCF40059CA789BF0DB /* Pods-appleMapTs-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appleMapTs-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-appleMapTs-tvOSTests/Pods-appleMapTs-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB8DE123232D7F28001D52F0 /* libRCTCameraRoll.a in Frameworks */,
 				FBA80E2A23103A8C00757601 /* libDoubleConversion.a in Frameworks */,
 				FBA80E28231038EC00757601 /* DoubleConversion.podspec in Frameworks */,
 				0792022DE0FEB5470DD5F90E /* libPods-appleMapTs.a in Frameworks */,
@@ -225,7 +215,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				FB8DE11D232D7E6D001D52F0 /* RCTCameraRoll.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -270,14 +259,6 @@
 				D60F039FBEBD1E82E3E3AA0E /* Pods-appleMapTsTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		FB8DE11E232D7E6D001D52F0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FB8DE122232D7E6E001D52F0 /* libRCTCameraRoll.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,12 +382,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FB8DE11E232D7E6D001D52F0 /* Products */;
-					ProjectRef = FB8DE11D232D7E6D001D52F0 /* RCTCameraRoll.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* appleMapTs */,
@@ -416,16 +391,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FB8DE122232D7E6E001D52F0 /* libRCTCameraRoll.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTCameraRoll.a;
-			remoteRef = FB8DE121232D7E6E001D52F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -603,7 +568,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-appleMapTs/Pods-appleMapTs-resources.sh",
-				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -626,7 +590,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
